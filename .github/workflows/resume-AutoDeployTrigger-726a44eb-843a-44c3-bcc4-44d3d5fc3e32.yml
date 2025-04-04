@@ -4,19 +4,21 @@ name: Trigger auto deployment for resume
 on:
   # Automatically trigger it when detected changes in repo
   push:
-    branches: 
+    branches:
       [ main ]
+    tags:
+      - '**'
     paths:
     - '**'
     - '.github/workflows/resume-AutoDeployTrigger-726a44eb-843a-44c3-bcc4-44d3d5fc3e32.yml'
 
-  # Allow manual trigger 
-  workflow_dispatch:      
+  # Allow manual trigger
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    permissions: 
+    permissions:
       id-token: write #This is required for requesting the OIDC JWT Token
       contents: read #Required when GH token is used to authenticate with private repo
 
