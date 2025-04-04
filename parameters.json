@@ -18,7 +18,7 @@
             "value": [
                 {
                     "name": "resume",
-                    "image": "docker.io/shennarwp/resume",
+                    "image": "docker.io/shennarwp/resume:2025.04.04",
                     "command": [],
                     "args": [],
                     "resources": {
