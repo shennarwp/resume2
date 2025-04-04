@@ -41,7 +41,7 @@ jobs:
           registryPassword: ${{ secrets.RESUME_REGISTRY_PASSWORD }}
           containerAppName: resume
           resourceGroup: myip
-          imageToBuild: default/[parameters('containerAppName')]:${{ github.sha }}
+          imageToBuild: shennarwp/resume:${{ github.sha }}
           _buildArgumentsKey_: |
             _buildArgumentsValues_
 
