@@ -4,8 +4,7 @@ name: Trigger auto deployment for resume
 on:
   # Automatically trigger it when detected changes in repo
   push:
-    branches:
-      [ main ]
+    branches: [main]
 
   # Allow manual trigger
   workflow_dispatch:
