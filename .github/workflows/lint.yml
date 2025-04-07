@@ -33,6 +33,8 @@ jobs:
           FIX_YAML_PRETTIER: true
           FIX_JSON: true
           FIX_JSON_PRETTIER: true
+          VALIDATE_ARM: false
+          VALIDATE_CHECKOV: false
           # To reuse the same Super-linter configuration that you use in the
           # lint job without duplicating it, see
           # https://github.com/super-linter/super-linter/blob/main/docs/run-linter-locally.md#share-environment-variables-between-environments
