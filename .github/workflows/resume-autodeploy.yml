@@ -13,7 +13,7 @@ jobs:
   deploy-azure:
     name: Deploy to azure container apps
     environment:
-      name: azurecloud
+      name: AzureCloud
     runs-on: ubuntu-latest
     permissions:
       id-token: write #This is required for requesting the OIDC JWT Token
