@@ -24,7 +24,7 @@ jobs:
       - name: Checkout to the branch
         uses: actions/checkout@v2
 
-      - name: Azure Login
+      - name: Azure login
         uses: azure/login@v1
         with:
           client-id: ${{ secrets.RESUME_AZURE_CLIENT_ID }}
@@ -45,7 +45,7 @@ jobs:
           _buildArgumentsKey_: |
             _buildArgumentsValues_
 
-      - name: deploy to alpinesky
+      - name: Deploy to alpinesky
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}
@@ -57,4 +57,5 @@ jobs:
             && git pull \
             && docker-compose build \
             && docker-compose up -d \
-            && docker container restart nginx
+            && docker container restart nginx \
+            && docker image prune --force
