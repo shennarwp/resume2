@@ -20,11 +20,6 @@ body
 	text-rendering:optimizeLegibility;
 }
 
-.skill-set li:hover
-{
-	background:#3498db;
-}
-
 ul.a {
   list-style-type: circle;
 }
@@ -156,7 +151,7 @@ ul.skill-set
 
 .skill-set li
 {
-	background:rgba(0,0,0,.75);
+			background:rgba(0,0,0,.75);
 	border-radius:5px;
 	color:#FFF;
 	display:inline-block;
@@ -164,6 +159,11 @@ ul.skill-set
 	margin:15px 15px 0 0;
 	padding:10px;
 	text-align:justify;
+}
+
+.skill-set li:hover
+{
+	background:#3498db;
 }
 
 @media screen and (max-width: 48em) {
@@ -174,9 +174,6 @@ ul.skill-set
 		width:100%;
     min-height:500px;
 	}
-  .handmade {
-  text-align:center !important;
-  margin-top:0px !important;
 }
 
 @media screen and (max-width: 75em) {
@@ -194,13 +191,4 @@ ul.skill-set
    display: block;
    height: 0;
    clear: both;
-}
-.handmade {
-  text-align:right;
-  margin-top:100px;
-}
-.handmade em {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 1.25em;
-  margin-left:5px;
 }
