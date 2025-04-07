@@ -10,7 +10,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy-azure:
+    name: Deploy to azure container apps
+    environment:
+      name: azure
     runs-on: ubuntu-latest
     permissions:
       id-token: write #This is required for requesting the OIDC JWT Token
@@ -41,7 +44,20 @@ jobs:
           _buildArgumentsKey_: |
             _buildArgumentsValues_
 
-      - name: Deploy to alpinesky
+  deploy-hetzner:
+    name: Deploy to hetzner vm
+    environment:
+      name: hetzner
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v4
+
+      - name: Deploy to hetzner
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}
