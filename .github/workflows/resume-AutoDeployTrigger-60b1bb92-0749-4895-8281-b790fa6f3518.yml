@@ -45,4 +45,16 @@ jobs:
           _buildArgumentsKey_: |
             _buildArgumentsValues_
 
-
+      - name: deploy to alpinesky
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.RESUME2_PATH }} \
+            && git pull \
+            && docker-compose pull \
+            && docker-compose up -d \
+            && docker container restart nginx
