@@ -20,9 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-      - name: Pull remote changes
-        run: git pull
+          ref: ${{ github.head_ref }}
       - name: Super-linter
         uses: super-linter/super-linter@v7.3.0 # x-release-please-version
         env:
