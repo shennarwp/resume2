@@ -6,9 +6,6 @@ on:
   push:
     branches:
       [ main ]
-    paths:
-    - '**'
-    - '.github/workflows/resume-AutoDeployTrigger-60b1bb92-0749-4895-8281-b790fa6f3518.yml'
 
   # Allow manual trigger
   workflow_dispatch:
