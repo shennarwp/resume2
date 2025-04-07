@@ -55,6 +55,6 @@ jobs:
           script: |
             cd ${{ secrets.RESUME2_PATH }} \
             && git pull \
-            && docker-compose pull \
+            && docker-compose build \
             && docker-compose up -d \
             && docker container restart nginx
