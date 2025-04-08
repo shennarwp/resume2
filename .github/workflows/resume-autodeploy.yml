@@ -3,6 +3,8 @@ name: Trigger auto deployment for resume
 on:
   push:
     branches: [main]
+    tags:
+      - '**'
 
   # Allow manual trigger
   workflow_dispatch:
