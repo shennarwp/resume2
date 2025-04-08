@@ -30,10 +30,21 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Login to dockerhub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: 'Build image'
         run: |
-          docker build . --tag ghcr.io/shennarwp/resume:latest
+          docker build . --tag ghcr.io/shennarwp/resume:latest \
+                         --tag shennarwp/resume:latest
+
+      - name: 'Push image'
+        run: |
           docker push ghcr.io/shennarwp/resume:latest
+          docker push shennarwp/resume:latest
 
   #     - name: Azure login
   #       uses: azure/login@v2
