@@ -18,7 +18,7 @@ jobs:
       - name: Checkout to the branch
         uses: actions/checkout@v4
 
-      - name: "Login to ghcr"
+      - name: Login to ghcr
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -38,8 +38,8 @@ jobs:
 
       - name: Push image
         run: |
-          docker push ghcr.io/shennarwp/resume:${{ github.sha }}
-          docker push shennarwp/resume:${{ github.sha }}
+          docker push ghcr.io/{{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ github.sha }}
 
   deploy-azure:
     name: Deploy to azure container apps
@@ -58,7 +58,7 @@ jobs:
           containerAppName: resume
           containerAppEnvironment: appPlan-xqp6nrnmjtxv6
           resourceGroup: myip
-          imageToDeploy: ghcr.io/shennarwp/resume:${{ github.sha }}
+          imageToDeploy: ghcr.io/{{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
 
   deploy-hetzner:
     name: Deploy to hetzner vm
@@ -79,11 +79,11 @@ jobs:
             docker container stop resume \
             && docker container rm resume \
             && docker run \
-                 --detach
+                 --detach \
                  --net nginx \
                  --name resume \
                  --restart always \
                  --expose 80 \
-                 shennarwp/resume:${{ github.sha }} \
+                 ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ github.sha }} \
             && docker container restart nginx \
             && docker image prune --force
