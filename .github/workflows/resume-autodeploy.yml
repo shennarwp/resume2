@@ -76,9 +76,13 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker run \
-              --net nginx \
-              --name resume \
-              --restart always \
-              --expose 80 \
-              shennarwp/resume:${{ github.sha }}
+            docker container stop resume \
+            && docker container rm resume \
+            && docker run \
+                 --net nginx \
+                 --name resume \
+                 --restart always \
+                 --expose 80 \
+                 shennarwp/resume:${{ github.sha }} \
+            && docker container restart nginx \
+            && docker image prune --force
