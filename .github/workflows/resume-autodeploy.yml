@@ -76,8 +76,8 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker container stop resume \
-            && docker container rm resume \
+            docker stop resume || true \
+            && docker rm resume || true \
             && docker run \
                  --detach \
                  --net nginx \
