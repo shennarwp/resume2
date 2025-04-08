@@ -38,13 +38,13 @@ jobs:
 
       - name: 'Build image'
         run: |
-          docker build . --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:$GITHUB_SHA \
-                         --tag ${{ secrets.DOCKERHUB_USERNAME }}/resume:$GITHUB_SHA
+          docker build . --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }} \
+                         --tag ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ github.sha }}
 
       - name: 'Push image'
         run: |
-          docker push ghcr.io/shennarwp/resume:$GITHUB_SHA
-          docker push shennarwp/resume:$GITHUB_SHA
+          docker push ghcr.io/shennarwp/resume:${{ github.sha }}
+          docker push shennarwp/resume:${{ github.sha }}
 
       - name: Azure login
         uses: azure/login@v2
@@ -57,7 +57,7 @@ jobs:
           containerAppName: resume
           containerAppEnvironment: appPlan-xqp6nrnmjtxv6
           resourceGroup: myip
-          imageToDeploy: ghcr.io/shennarwp/resume:$GITHUB_SHA
+          imageToDeploy: ghcr.io/shennarwp/resume:${{ github.sha }}
 
   #     - name: Build and push container image to registry
   #       uses: azure/container-apps-deploy-action@v2
