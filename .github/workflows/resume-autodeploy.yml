@@ -38,7 +38,7 @@ jobs:
 
       - name: Push image
         run: |
-          docker push ghcr.io/{{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ github.sha }}
 
   deploy-azure:
@@ -58,7 +58,7 @@ jobs:
           containerAppName: resume
           containerAppEnvironment: appPlan-xqp6nrnmjtxv6
           resourceGroup: myip
-          imageToDeploy: ghcr.io/{{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
+          imageToDeploy: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
 
   deploy-hetzner:
     name: Deploy to hetzner vm
