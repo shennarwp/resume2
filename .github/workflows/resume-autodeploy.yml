@@ -79,6 +79,7 @@ jobs:
             docker container stop resume \
             && docker container rm resume \
             && docker run \
+                 --detach
                  --net nginx \
                  --name resume \
                  --restart always \
