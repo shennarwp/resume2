@@ -4,7 +4,7 @@ name: Trigger auto deployment for resume
 on:
   # Automatically trigger it when detected changes in repo
   push:
-    branches: [main]
+    branches: [main, test-push-registry]
 
   # Allow manual trigger
   workflow_dispatch:
@@ -21,51 +21,63 @@ jobs:
       - name: Checkout to the branch
         uses: actions/checkout@v4
 
-      - name: Azure login
-        uses: azure/login@v2
+      - name: 'Login to ghcr'
+        uses: docker/login-action@v3
         with:
-          client-id: ${{ secrets.RESUME_AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.RESUME_AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.RESUME_AZURE_SUBSCRIPTION_ID }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push container image to registry
-        uses: azure/container-apps-deploy-action@v2
-        with:
-          appSourcePath: ${{ github.workspace }}
-          _dockerfilePathKey_: _dockerfilePath_
-          registryUrl: docker.io
-          registryUsername: ${{ secrets.RESUME_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.RESUME_REGISTRY_PASSWORD }}
-          containerAppName: resume
-          resourceGroup: myip
-          imageToBuild: shennarwp/resume:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
+      - name: 'Build image'
+        run: |
+          docker build . --tag ghcr.io/shennarwp/resume:latest
+          docker push ghcr.io/shennarwp/resume:latest
 
-  deploy-hetzner:
-    name: Deploy to hetzner vm
-    environment:
-      name: hetzner
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write #This is required for requesting the OIDC JWT Token
-      contents: read #Required when GH token is used to authenticate with private repo
+  #     - name: Azure login
+  #       uses: azure/login@v2
+  #       with:
+  #         client-id: ${{ secrets.RESUME_AZURE_CLIENT_ID }}
+  #         tenant-id: ${{ secrets.RESUME_AZURE_TENANT_ID }}
+  #         subscription-id: ${{ secrets.RESUME_AZURE_SUBSCRIPTION_ID }}
 
-    steps:
-      - name: Checkout to the branch
-        uses: actions/checkout@v4
+  #     - name: Build and push container image to registry
+  #       uses: azure/container-apps-deploy-action@v2
+  #       with:
+  #         appSourcePath: ${{ github.workspace }}
+  #         _dockerfilePathKey_: _dockerfilePath_
+  #         registryUrl: docker.io
+  #         registryUsername: ${{ secrets.RESUME_REGISTRY_USERNAME }}
+  #         registryPassword: ${{ secrets.RESUME_REGISTRY_PASSWORD }}
+  #         containerAppName: resume
+  #         resourceGroup: myip
+  #         imageToBuild: shennarwp/resume:${{ github.sha }}
+  #         _buildArgumentsKey_: |
+  #           _buildArgumentsValues_
 
-      - name: Deploy to hetzner
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd ${{ secrets.RESUME2_PATH }} \
-            && git pull \
-            && docker-compose build \
-            && docker-compose up -d \
-            && docker container restart nginx \
-            && docker image prune --force
+  # deploy-hetzner:
+  #   name: Deploy to hetzner vm
+  #   environment:
+  #     name: hetzner
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     id-token: write #This is required for requesting the OIDC JWT Token
+  #     contents: read #Required when GH token is used to authenticate with private repo
+
+  #   steps:
+  #     - name: Checkout to the branch
+  #       uses: actions/checkout@v4
+
+  #     - name: Deploy to hetzner
+  #       uses: appleboy/ssh-action@v1
+  #       with:
+  #         host: ${{ secrets.HOST }}
+  #         username: ${{ secrets.USERNAME }}
+  #         key: ${{ secrets.KEY }}
+  #         port: ${{ secrets.PORT }}
+  #         script: |
+  #           cd ${{ secrets.RESUME2_PATH }} \
+  #           && git pull \
+  #           && docker-compose build \
+  #           && docker-compose up -d \
+  #           && docker container restart nginx \
+  #           && docker image prune --force
