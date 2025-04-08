@@ -38,13 +38,14 @@ jobs:
 
       - name: 'Build image'
         run: |
-          docker build . --tag ghcr.io/shennarwp/resume:latest \
-                         --tag shennarwp/resume:latest
+          COMMIT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+          docker build . --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:$COMMIT_SHA \
+                         --tag ${{ secrets.DOCKERHUB_USERNAME }}/resume:$COMMIT_SHA
 
       - name: 'Push image'
         run: |
-          docker push ghcr.io/shennarwp/resume:latest
-          docker push shennarwp/resume:latest
+          docker push ghcr.io/shennarwp/resume:$COMMIT_SHA
+          docker push shennarwp/resume:$COMMIT_SHA
 
   #     - name: Azure login
   #       uses: azure/login@v2
