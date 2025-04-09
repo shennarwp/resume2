@@ -132,11 +132,20 @@ jobs:
             && docker container restart nginx \
             && docker image prune --force
 
+  healthcheck:
+    name: Deploy to hetzner vm
+    environment:
+      name: hetzner
+      url: https://shennarwp.com/cv/
+    runs-on: ubuntu-latest
+    needs: [deploy-azure, deploy-hetzner]
+
+    steps:
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v4
         with:
           # Check the following URLs one by one sequentially
-          url: https://shennarwp.com/cv/
+          url: https://shennarwp.com/cv/|https://resume.bravewater-857def22.southeastasia.azurecontainerapps.io/
           follow-redirect: false # Optional, defaults to "false"
           max-attempts: 5
           retry-delay: 10s
