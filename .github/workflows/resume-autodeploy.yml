@@ -41,16 +41,15 @@ jobs:
         id: check-tag
         run: |
           if  [[ ${{ github.ref_type }} == 'tag' ]]; then
-              echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
               echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
           else
               echo "TAG=${{ github.sha }}" >> $GITHUB_OUTPUT
-              echo "TAG=${{ github.sha }}" >> $GITHUB_ENV
           fi
 
       - name: Test
-        run: |
-          echo $TAG
+        env:
+          TAG: ${{ steps.check-tag.outputs.TAG }}
+        run: echo "The selected tag is $TAG"
 
       - name: Login to ghcr
         uses: docker/login-action@v3
