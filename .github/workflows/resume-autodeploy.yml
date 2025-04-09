@@ -2,9 +2,11 @@ name: Trigger auto deployment for resume
 
 on:
   push:
-    branches: [main, test-sonar]
+    branches: [main]
     tags:
       - "**"
+    pull_request:
+      types: [opened, synchronize, reopened]
 
   # Allow manual trigger
   workflow_dispatch:
@@ -56,63 +58,65 @@ jobs:
           docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ github.sha }}
 
-  # deploy-azure:
-  #   name: Deploy to azure container apps
-  #   environment:
-  #     name: azure
-  #     url: https://resume.bravewater-857def22.southeastasia.azurecontainerapps.io/
-  #   runs-on: ubuntu-latest
-  #   needs: [build-and-push]
+  deploy-azure:
+    name: Deploy to azure container apps
+    environment:
+      name: azure
+      url: https://resume.bravewater-857def22.southeastasia.azurecontainerapps.io/
+    runs-on: ubuntu-latest
+    needs: [build-and-push]
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
 
-  #   steps:
-  #     - name: Azure login
-  #       uses: azure/login@v2
-  #       with:
-  #         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    steps:
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-  #     - name: Deploy to azure
-  #       uses: azure/container-apps-deploy-action@v2
-  #       with:
-  #         containerAppName: resume
-  #         containerAppEnvironment: ${{ secrets.AZURE_CONTAINER_APP_ENVIRONMENT }}
-  #         resourceGroup: ${{ secrets.RESOURCE_GROUP }}
-  #         imageToDeploy: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
+      - name: Deploy to azure
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          containerAppName: resume
+          containerAppEnvironment: ${{ secrets.AZURE_CONTAINER_APP_ENVIRONMENT }}
+          resourceGroup: ${{ secrets.RESOURCE_GROUP }}
+          imageToDeploy: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
 
-  # deploy-hetzner:
-  #   name: Deploy to hetzner vm
-  #   environment:
-  #     name: hetzner
-  #     url: https://shennarwp.com/cv/
-  #   runs-on: ubuntu-latest
-  #   needs: [build-and-push]
+  deploy-hetzner:
+    name: Deploy to hetzner vm
+    environment:
+      name: hetzner
+      url: https://shennarwp.com/cv/
+    runs-on: ubuntu-latest
+    needs: [build-and-push]
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
 
-  #   steps:
-  #     - name: Deploy to hetzner
-  #       uses: appleboy/ssh-action@v1
-  #       with:
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USERNAME }}
-  #         key: ${{ secrets.KEY }}
-  #         port: ${{ secrets.PORT }}
-  #         script: |
-  #           docker stop resume || true \
-  #           && docker rm resume || true \
-  #           && docker run \
-  #                --detach \
-  #                --net nginx \
-  #                --name resume \
-  #                --restart always \
-  #                --expose 80 \
-  #                ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ github.sha }} \
-  #           && docker container restart nginx \
-  #           && docker image prune --force
+    steps:
+      - name: Deploy to hetzner
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker stop resume || true \
+            && docker rm resume || true \
+            && docker run \
+                 --detach \
+                 --net nginx \
+                 --name resume \
+                 --restart always \
+                 --expose 80 \
+                 ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ github.sha }} \
+            && docker container restart nginx \
+            && docker image prune --force
 
-  #     - name: Check the deployed service URL
-  #       uses: jtalk/url-health-check-action@v4
-  #       with:
-  #         # Check the following URLs one by one sequentially
-  #         url: https://shennarwp.com/cv/
-  #         follow-redirect: false # Optional, defaults to "false"
-  #         max-attempts: 5
-  #         retry-delay: 10s
-  #         retry-all: false
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@v4
+        with:
+          # Check the following URLs one by one sequentially
+          url: https://shennarwp.com/cv/
+          follow-redirect: false # Optional, defaults to "false"
+          max-attempts: 5
+          retry-delay: 10s
+          retry-all: false
