@@ -46,11 +46,6 @@ jobs:
               echo "TAG=${{ github.sha }}" >> $GITHUB_OUTPUT
           fi
 
-      - name: Test
-        env:
-          TAG: ${{ steps.check-tag.outputs.TAG }}
-        run: echo "The selected tag is $TAG"
-
       - name: Login to ghcr
         uses: docker/login-action@v3
         with:
@@ -81,7 +76,9 @@ jobs:
       url: https://resume.bravewater-857def22.southeastasia.azurecontainerapps.io/
     runs-on: ubuntu-latest
     needs: [build-and-push]
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    env:
+      DEPLOYED_TAG: ${{ needs.build-and-push.outputs.tag }}
+    if: github.ref == 'refs/heads/main' || github.ref_type == 'tag'
 
     steps:
       - name: Azure login
@@ -95,7 +92,7 @@ jobs:
           containerAppName: resume
           containerAppEnvironment: ${{ secrets.AZURE_CONTAINER_APP_ENVIRONMENT }}
           resourceGroup: ${{ secrets.RESOURCE_GROUP }}
-          imageToDeploy: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ github.sha }}
+          imageToDeploy: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:$DEPLOYED_TAG
 
   deploy-hetzner:
     name: Deploy to hetzner vm
@@ -105,41 +102,36 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-and-push]
     env:
-      TAG: ${{ needs.build-and-push.outputs.tag }}
-#    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      DEPLOYED_TAG: ${{ needs.build-and-push.outputs.tag }}
+    if: github.ref == 'refs/heads/main' || github.ref_type == 'tag'
 
     steps:
-      - name: Test
-        run: |
-          TAG="${{ needs.build-and-push.outputs.tag }}"
-          echo "The selected tag is $TAG"
+      - name: Deploy to hetzner
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker stop resume || true \
+            && docker rm resume || true \
+            && docker run \
+                 --detach \
+                 --net nginx \
+                 --name resume \
+                 --restart always \
+                 --expose 80 \
+                 ${{ secrets.DOCKERHUB_USERNAME }}/resume:$DEPLOYED_TAG \
+            && docker container restart nginx \
+            && docker image prune --force
 
-      # - name: Deploy to hetzner
-      #   uses: appleboy/ssh-action@v1
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     key: ${{ secrets.KEY }}
-      #     port: ${{ secrets.PORT }}
-      #     script: |
-      #       docker stop resume || true \
-      #       && docker rm resume || true \
-      #       && docker run \
-      #            --detach \
-      #            --net nginx \
-      #            --name resume \
-      #            --restart always \
-      #            --expose 80 \
-      #            ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ github.sha }} \
-      #       && docker container restart nginx \
-      #       && docker image prune --force
-
-      # - name: Check the deployed service URL
-      #   uses: jtalk/url-health-check-action@v4
-      #   with:
-      #     # Check the following URLs one by one sequentially
-      #     url: https://shennarwp.com/cv/
-      #     follow-redirect: false # Optional, defaults to "false"
-      #     max-attempts: 5
-      #     retry-delay: 10s
-      #     retry-all: false
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@v4
+        with:
+          # Check the following URLs one by one sequentially
+          url: https://shennarwp.com/cv/
+          follow-redirect: false # Optional, defaults to "false"
+          max-attempts: 5
+          retry-delay: 10s
+          retry-all: false
