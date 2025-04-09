@@ -111,8 +111,8 @@ jobs:
     steps:
       - name: Test
         run: |
-        TAG="${{ needs.build-and-push.outputs.tag }}"
-        echo "The selected tag is $TAG"
+          TAG="${{ needs.build-and-push.outputs.tag }}"
+          echo "The selected tag is $TAG"
 
       # - name: Deploy to hetzner
       #   uses: appleboy/ssh-action@v1
