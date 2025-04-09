@@ -5,8 +5,8 @@ on:
     branches: [main]
     tags:
       - "**"
-    pull_request:
-      types: [opened, synchronize, reopened]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
   # Allow manual trigger
   workflow_dispatch:
