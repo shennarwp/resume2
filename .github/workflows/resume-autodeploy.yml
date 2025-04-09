@@ -41,9 +41,9 @@ jobs:
         id: check-tag
         run: |
           if  [[ ${{ github.ref_type }} == 'tag' ]]; then
-              echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+              echo "TAG=${GITHUB_REF#refs/*/}" >> "$GITHUB_OUTPUT"
           else
-              echo "TAG=${{ github.sha }}" >> $GITHUB_OUTPUT
+              echo "TAG=${{ github.sha }}" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Login to ghcr
