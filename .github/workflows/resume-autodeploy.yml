@@ -92,7 +92,7 @@ jobs:
           containerAppName: resume
           containerAppEnvironment: ${{ secrets.AZURE_CONTAINER_APP_ENVIRONMENT }}
           resourceGroup: ${{ secrets.RESOURCE_GROUP }}
-          imageToDeploy: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ DEPLOYED_TAG }}
+          imageToDeploy: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:${{ env.DEPLOYED_TAG }}
 
   deploy-hetzner:
     name: Deploy to hetzner vm
@@ -122,7 +122,7 @@ jobs:
                  --name resume \
                  --restart always \
                  --expose 80 \
-                 ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ DEPLOYED_TAG }} \
+                 ${{ secrets.DOCKERHUB_USERNAME }}/resume:${{ env.DEPLOYED_TAG }} \
             && docker container restart nginx \
             && docker image prune --force
 
