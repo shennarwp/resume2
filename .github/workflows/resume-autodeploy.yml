@@ -133,7 +133,7 @@ jobs:
             && docker image prune --force
 
   healthcheck:
-    name: Deploy to hetzner vm
+    name: Check url after deployment
     environment:
       name: hetzner
       url: https://shennarwp.com/cv/
