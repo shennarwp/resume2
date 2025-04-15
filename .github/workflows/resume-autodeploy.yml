@@ -78,11 +78,12 @@ jobs:
           file: Dockerfile-busybox
           push: true
           #provenance: mode=max
-          #sbom: true
+          sbom: true
           tags: |
             ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
-            ${{ steps.meta.outputs.tags }}
+
+# ${{ steps.meta.outputs.tags }}
 
       - name: Build and push nginx image
         uses: docker/build-push-action@v6
@@ -91,11 +92,12 @@ jobs:
           file: Dockerfile-nginx
           push: true
           #provenance: mode=max
-          #sbom: true
+          sbom: true
           tags: |
             ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
-            ${{ steps.meta.outputs.tags }}
+
+#${{ steps.meta.outputs.tags }}
 
       # - name: Build image
       #   run: |
