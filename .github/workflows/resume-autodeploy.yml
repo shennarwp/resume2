@@ -93,12 +93,14 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
 
       - name: Attest dockerhub image
+        if: github.ref == 'refs/heads/main' || github.ref_type == 'tag'
         uses: actions/attest-build-provenance@v2
         with:
           subject-name: ${{ secrets.DOCKERHUB_USERNAME }}/resume
           subject-digest: ${{ steps.build-push-busybox.outputs.digest }}
 
       - name: Attest ghcr image
+        if: github.ref == 'refs/heads/main' || github.ref_type == 'tag'
         uses: actions/attest-build-provenance@v2
         with:
           subject-name: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume
