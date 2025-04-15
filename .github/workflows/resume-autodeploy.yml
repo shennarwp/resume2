@@ -80,8 +80,8 @@ jobs:
           provenance: mode=max
           sbom: true
           tags: |
-            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ check-tag.outputs.TAG }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ check-tag.outputs.TAG }}
+            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
             ${{ steps.meta.outputs.tags }}
 
       - name: Build and push nginx image
@@ -93,7 +93,7 @@ jobs:
           provenance: mode=max
           sbom: true
           tags: |
-            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ check-tag.outputs.TAG }}
+            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
             ${{ steps.meta.outputs.tags }}
 
