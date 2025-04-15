@@ -83,7 +83,7 @@ jobs:
             ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
 
-# ${{ steps.meta.outputs.tags }}
+      # ${{ steps.meta.outputs.tags }}
 
       - name: Build and push nginx image
         uses: docker/build-push-action@v6
@@ -97,23 +97,23 @@ jobs:
             ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
 
-#${{ steps.meta.outputs.tags }}
+  #${{ steps.meta.outputs.tags }}
 
-      # - name: Build image
-      #   run: |
-      #     docker build . -f Dockerfile-busybox \
-      #       --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }} \
-      #       --tag ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
-      #     docker build . -f Dockerfile-nginx \
-      #       --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }} \
-      #       --tag ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
+  # - name: Build image
+  #   run: |
+  #     docker build . -f Dockerfile-busybox \
+  #       --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }} \
+  #       --tag ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
+  #     docker build . -f Dockerfile-nginx \
+  #       --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }} \
+  #       --tag ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
 
-      # - name: Push image
-      #   run: |
-      #     docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
-      #     docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
-      #     docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
-      #     docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
+  # - name: Push image
+  #   run: |
+  #     docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
+  #     docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
+  #     docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
+  #     docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
 
   deploy-azure:
     name: Deploy to azure container apps
