@@ -92,7 +92,7 @@ jobs:
             ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
 
-      - name: Attest nginx image
+      - name: Attest nginx and busybox images
         uses: actions/attest-build-provenance@v2
         with:
           subject-name: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume
