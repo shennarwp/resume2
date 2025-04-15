@@ -69,6 +69,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build and push busybox image
+        id: build-push-busybox
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64
@@ -95,7 +96,7 @@ jobs:
         uses: actions/attest-build-provenance@v2
         with:
           subject-name: ${{ secrets.DOCKERHUB_USERNAME }}/resume
-          subject-digest: ${{ steps.build-push-nginx.outputs.digest }}
+          subject-digest: ${{ steps.build-push-busybox.outputs.digest }}
           push-to-registry: true
 
       - name: Attest nginx image
