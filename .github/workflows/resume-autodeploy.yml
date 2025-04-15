@@ -93,7 +93,6 @@ jobs:
 
       - name: Attest busybox image
         uses: actions/attest-build-provenance@v2
-        id: attest
         with:
           subject-name: ${{ secrets.DOCKERHUB_USERNAME }}/resume
           subject-digest: ${{ steps.build-push-nginx.outputs.digest }}
@@ -101,7 +100,6 @@ jobs:
 
       - name: Attest nginx image
         uses: actions/attest-build-provenance@v2
-        id: attest
         with:
           subject-name: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume
           subject-digest: ${{ steps.build-push-nginx.outputs.digest }}
