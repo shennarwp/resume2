@@ -30,6 +30,8 @@ jobs:
     needs: [sonarqube]
     permissions:
       packages: write # to publish to ghcr
+      id-token: write
+      contents: read
       attestations: write
     outputs:
       tag: ${{ steps.check-tag.outputs.TAG }}
