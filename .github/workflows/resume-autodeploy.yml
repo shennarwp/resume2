@@ -80,6 +80,7 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
 
       - name: Build and push nginx image
+        id: build-push-nginx
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64
@@ -95,7 +96,7 @@ jobs:
         id: attest
         with:
           subject-name: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume
-          subject-digest: ${{ steps.push.outputs.digest }}
+          subject-digest: ${{ steps.build-push-nginx.outputs.digest }}
           push-to-registry: true
 
   deploy-azure:
