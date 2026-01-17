@@ -42,16 +42,16 @@ h1 {
   float: right;
   height: 100%;
   margin-left: -1px;
-  min-width: 256px;
+  min-width: 150px;
   position: fixed;
-  width: 33.33%;
+  width: 20%;
 }
 
 .right {
   float: right;
   height: 100%;
   position: relative;
-  width: 66.66%;
+  width: 80%;
 }
 
 .name-hero {
@@ -119,13 +119,12 @@ h1 {
 }
 
 .inner section {
-  margin: 100px auto;
+  margin: 0px auto;
 }
 
 ul.skill-set {
   list-style-type: none;
   margin-top: -10px;
-  max-width: 570px;
   padding: 0;
 }
 
@@ -135,8 +134,8 @@ ul.skill-set {
   color: #fff;
   display: inline-block;
   list-style: none;
-  margin: 15px 15px 0 0;
-  padding: 10px;
+  margin: 5px 5px 0 0;
+  padding: 5px;
   text-align: justify;
 }
 
