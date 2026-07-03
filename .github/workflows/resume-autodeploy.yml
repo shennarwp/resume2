@@ -111,7 +111,7 @@ jobs:
     name: Deploy to azure container apps
     environment:
       name: azure
-      url: https://resume.bravewater-857def22.southeastasia.azurecontainerapps.io/
+      url: https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/
     runs-on: ubuntu-latest
     needs: [build-and-push]
     env:
