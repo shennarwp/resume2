@@ -179,7 +179,7 @@ jobs:
         uses: jtalk/url-health-check-action@v4
         with:
           # Check the following URLs one by one sequentially
-          url: https://shennarwp.com/cv/|https://resume.bravewater-857def22.southeastasia.azurecontainerapps.io/
+          url: https://shennarwp.com/cv/|https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/
           follow-redirect: false # Optional, defaults to "false"
           max-attempts: 5
           retry-delay: 10s
