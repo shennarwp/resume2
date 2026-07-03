@@ -109,8 +109,8 @@ jobs:
 
   deploy-azure:
     name: Deploy to azure container apps
-    # environment:
-    #   name: azure
+    environment:
+      name: azure
     #   url: https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/
     runs-on: ubuntu-latest
     permissions: 
