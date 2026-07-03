@@ -42,7 +42,7 @@ jobs:
           registryPassword: ${{ secrets.RESUME_REGISTRY_PASSWORD }}
           containerAppName: resume
           resourceGroup: web
-          imageToBuild: ghcr.io/resume:${{ github.sha }}
+          imageToBuild: ghcr.io/shennarwp/resume:${{ github.sha }}
           _buildArgumentsKey_: |
             _buildArgumentsValues_
 
