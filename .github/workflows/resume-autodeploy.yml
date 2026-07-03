@@ -12,17 +12,17 @@ on:
   workflow_dispatch:
 
 jobs:
- sonarqube:
-   name: Scan code with sonarqube
-   runs-on: ubuntu-latest
-   steps:
-     - name: Checkout to the branch
-       uses: actions/checkout@v4
+  sonarqube:
+    name: Scan code with sonarqube
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v4
 
-     - name: SonarQube Scan
-       uses: SonarSource/sonarqube-scan-action@v6
-       env:
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build-and-push:
     name: Build image and push to registries
