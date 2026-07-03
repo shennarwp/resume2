@@ -111,7 +111,7 @@ jobs:
     name: Deploy to azure container apps
     environment:
       name: azure
-    #   url: https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/
+      url: https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/
     runs-on: ubuntu-latest
     permissions: 
       id-token: write #This is required for requesting the OIDC JWT Token
