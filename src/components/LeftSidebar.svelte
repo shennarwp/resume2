@@ -1,9 +1,10 @@
 <script>
+  import shennaImg from '../assets/shenna.jpg';
 </script>
 
 <div class="left">
   <div class="name-hero">
-    <div class="me-img"></div>
+    <div class="me-img" style="background-image: url({shennaImg})"></div>
     <div class="name-text">
       <h1>Shenna Risqianto Wilfred<em> Piri</em></h1>
       <p>Saarbrücken</p>
@@ -37,9 +38,9 @@
   }
 
   .me-img {
-    background: url('/assets/shenna.jpg') no-repeat center center;
     background-size: 100%;
-    background-position: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
     border-radius: 100%;
     height: 150px;
     margin: 0 auto;
