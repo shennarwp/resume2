@@ -1,16 +1,29 @@
-:root {
-  font-family: "EB Garamond", serif;
-  line-height: 1.6;
-  font-weight: 400;
+/* Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+html {
+  font-size: 100%;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+body {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #333332;
+  font-family: "EB Garamond", serif;
+  font-size: 22px;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  line-height: 1.4;
+  text-rendering: optimizelegibility;
+  margin: 0;
+}
+
+h1 {
+  color: rgb(0 0 0 / 75%);
 }
 
 a {
@@ -44,11 +57,43 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* App wrapper */
+.wrapper {
+  height: 100%;
+}
+
+.clearfix::after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+/* Responsive Design */
+@media screen and (width <= 75em) {
+  body {
+    font-size: 16px;
   }
+}
+
+@media screen and (width <= 60em) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (width <= 48em) {
+  .right,
+  .left {
+    float: none;
+    position: relative !important;
+    width: 100%;
+    min-height: 500px;
+  }
+}
+
+@media (prefers-color-scheme: light) {
   a:hover {
     color: #747bff;
   }
@@ -56,4 +101,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
