@@ -37,7 +37,7 @@
   }
 
   .me-img {
-    background: url('/shenna.svg') no-repeat center center;
+    background: url('/assets/shenna.jpg') no-repeat center center;
     background-size: 100%;
     background-position: 0;
     border-radius: 100%;
