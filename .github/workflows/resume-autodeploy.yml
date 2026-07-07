@@ -163,7 +163,7 @@ jobs:
                  --net nginx \
                  --name resume \
                  --restart always \
-                 --expose 80 \
+                 --expose 8080 \
                  ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ env.DEPLOYED_TAG }} \
             && docker container restart nginx \
             && docker image prune --force

@@ -5,7 +5,7 @@ services:
     container_name: resume
     restart: always
     expose:
-      - 80
+      - 8080
     networks:
       - nginx
 
