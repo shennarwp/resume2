@@ -8,10 +8,37 @@
     <div class="name-text">
       <h1>Shenna Risqianto Wilfred <em>Piri</em></h1>
       <p>Saarbrücken</p>
-      <p>https://shennarwp.com/cv/</p>
-      <p>shenna@rwpiri.com</p>
-      <p>shennawew@outlook.com</p>
-      <p>+49 1525 7523364</p>
+      <p>
+        <a href="https://shennarwp.com/cv/" target="_blank" class="link-text-color">
+          https://shennarwp.com/cv/
+        </a>&ensp;
+      </p>
+      <p>
+        <a href="mailto:shenna@rwpiri.com" class="link-text-color">
+          shenna@rwpiri.com
+        </a>&ensp;
+      </p>
+      <p>
+        <a href="mailto:shennawew@outlook.com" class="link-text-color">
+          shennawew@outlook.com
+        </a>&ensp;
+      </p>
+      <p>
+        <a href="tel:+49 1525 7523364" class="link-text-color">
+          +49 1525 7523364
+        </a>&ensp;
+      </p>
+      <div class="icon-center">
+        <a href="https://github.com/shennarwp/">
+          <i class="fa fa-github link-text-color" aria-hidden="true"></i>
+        </a>&ensp;
+        <a href="https://www.linkedin.com/in/shennarwp/">
+          <i class="fa fa-linkedin-square link-text-color" aria-hidden="true"></i>
+        </a>&ensp;
+        <a href="https://instagram.com/shennarwp/">
+          <i class="fa fa-instagram link-text-color" aria-hidden="true"></i>
+        </a>&ensp;
+      </div>
     </div>
   </div>
 </div>
@@ -71,6 +98,16 @@
   .name-hero .name-text {
     margin: 0 auto;
     width: 85%;
+  }
+
+  .link-text-color {
+    color: rgb(0 0 0 / 75%)
+  }
+
+  .icon-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   /* Mobile: move sidebar to top and make it full-width */
