@@ -6,7 +6,7 @@
   <div class="name-hero">
     <div class="me-img" style="background-image: url({shennaImg})"></div>
     <div class="name-text">
-      <h1>Shenna Risqianto Wilfred<em> Piri</em></h1>
+      <h1>Shenna Risqianto Wilfred <em>Piri</em></h1>
       <p>Saarbrücken</p>
       <p>https://shennarwp.com/cv/</p>
       <p>shenna@rwpiri.com</p>
@@ -71,5 +71,42 @@
   .name-hero .name-text {
     margin: 0 auto;
     width: 85%;
+  }
+
+  /* Mobile: move sidebar to top and make it full-width */
+  @media (max-width: 768px) {
+    .left {
+      position: relative;
+      width: 100%;
+      float: none;
+      border-right: none;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      min-width: auto;
+      margin-left: 0;
+    }
+
+    .name-hero {
+      position: relative;
+      inset: auto;
+      height: auto;
+      width: 100%;
+      margin: 0;
+      padding: 4rem 2rem;
+    }
+
+    .me-img {
+      height: 120px;
+      width: 120px;
+    }
+
+    .name-hero .name-text {
+      width: 100%;
+    }
+
+    /* ensure main content stacks below */
+    :global(.right) {
+      float: none;
+      width: 100%;
+    }
   }
 </style>

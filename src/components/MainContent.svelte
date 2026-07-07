@@ -23,7 +23,7 @@
   .inner {
     margin: 0 auto;
     max-width: 1075px;
-    padding: 1em;
+    padding: 4em;
   }
 
   :global(.inner h1) {
@@ -41,5 +41,17 @@
 
   :global(.inner section) {
     margin: 0px auto;
+  }
+
+  /* Mobile: stack main content under the sidebar */
+  @media (max-width: 768px) {
+    .right {
+      float: none;
+      width: 100%;
+    }
+
+    .inner {
+      padding: 2em;
+    }
   }
 </style>

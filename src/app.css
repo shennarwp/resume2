@@ -73,13 +73,13 @@ button:focus-visible {
 /* Responsive Design */
 @media screen and (width <= 75em) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
 @media screen and (width <= 60em) {
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -89,7 +89,7 @@ button:focus-visible {
     float: none;
     position: relative !important;
     width: 100%;
-    min-height: 500px;
+    min-height: 250px;
   }
 }
 
