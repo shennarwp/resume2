@@ -45,7 +45,7 @@ jobs:
         run: npm run build
 
       - name: Copy favicon into dist
-        run: cp src/assets/favicon.ico dist/favicon.ico || true
+        run: cp src/assets/favicon.png dist/favicon.png || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
