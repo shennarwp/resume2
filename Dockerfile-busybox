@@ -11,5 +11,5 @@ FROM lipanski/docker-static-website:2.4.0
 USER static
 WORKDIR /home/static
 COPY --from=builder /app/dist .
-COPY --from=builder /app/src/assets/favicon.png ./favicon.png
+#COPY --from=builder /app/src/assets/favicon.png ./favicon.png
 CMD ["/busybox-httpd", "-f", "-v", "-p", "80", "-c", "httpd.conf"]

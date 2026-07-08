@@ -1,5 +1,5 @@
 <script>
-  import shennaImg from '../assets/shenna.jpg';
+  import shennaImg from '/shenna.jpg';
 </script>
 
 <div class="left">
