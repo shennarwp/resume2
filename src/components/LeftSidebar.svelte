@@ -73,6 +73,9 @@
     margin: 0 auto;
     position: relative;
     width: 150px;
+    border-color: var(--me-img-border);
+    border-style: solid;
+    border-width: medium;
   }
 
   .name-hero h1 {

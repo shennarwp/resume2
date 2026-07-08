@@ -113,6 +113,7 @@ button:focus-visible {
     --skill-set-color: #fff;
     --skill-set-hover-bg: #3498db;
     --hr-solid-border: 1px solid rgb(0 0 0 / 20%);
+    --me-img-border: #333332;
   }
 }
 
@@ -139,5 +140,6 @@ button:focus-visible {
     --skill-set-color: #000;
     --skill-set-hover-bg: #3498db;
     --hr-solid-border: 1px solid rgb(255 255 255 / 20%);
+    --me-img-border: #6C6C6C;
   }
 }
