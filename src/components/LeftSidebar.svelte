@@ -29,13 +29,13 @@
         </a>&ensp;
       </p>
       <div class="icon-center">
-        <a href="https://github.com/shennarwp/">
+        <a href="https://github.com/shennarwp/" target="_blank" >
           <i class="fa fa-github link-text-color" aria-hidden="true"></i>
         </a>&ensp;
-        <a href="https://www.linkedin.com/in/shennarwp/">
+        <a href="https://www.linkedin.com/in/shennarwp/" target="_blank" >
           <i class="fa fa-linkedin-square link-text-color" aria-hidden="true"></i>
         </a>&ensp;
-        <a href="https://instagram.com/shennarwp/">
+        <a href="https://instagram.com/shennarwp/" target="_blank" >
           <i class="fa fa-instagram link-text-color" aria-hidden="true"></i>
         </a>&ensp;
       </div>

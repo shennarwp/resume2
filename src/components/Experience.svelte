@@ -91,7 +91,7 @@
 
   <h1>Ausbildung</h1>
   {#each education as edu}
-    <p>{edu.period}<em> {edu.school}</em></p>
+    <p>{edu.period} <em> {edu.school}</em></p>
     <p>{edu.degree}</p>
     <p>{edu.description}</p>
     <ul>
