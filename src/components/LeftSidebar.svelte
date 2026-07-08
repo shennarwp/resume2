@@ -52,7 +52,7 @@
     margin-left: -1px;
     min-width: 150px;
     position: fixed;
-    width: 20%;
+    width: 35%;
   }
 
   .name-hero {

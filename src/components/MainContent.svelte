@@ -17,7 +17,7 @@
     float: right;
     height: 100%;
     position: relative;
-    width: 80%;
+    width: 65%;
   }
 
   .inner {
