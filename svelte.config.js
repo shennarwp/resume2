@@ -1,2 +1,10 @@
+import sveltePreprocess from 'svelte-preprocess';
+
 /** @type {import("@sveltejs/vite-plugin-svelte").SvelteConfig} */
-export default {}
+const config = {
+  preprocess: sveltePreprocess({
+    typescript: true
+  })
+};
+
+export default config;
