@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import shennaImg from '../assets/shenna.jpg';
 </script>
 
@@ -45,8 +45,8 @@
 
 <style>
   .left {
-    background-color: rgb(0 0 0 / 2.5%);
-    border-right: 1px solid rgb(0 0 0 / 5%);
+    background-color: var(--left-sidebar-bg);
+    border-right: var(--left-sidebar-border);
     float: right;
     height: 100%;
     margin-left: -1px;
@@ -56,7 +56,7 @@
   }
 
   .name-hero {
-    background: rgb(0 0 0 / 0.1%);
+    background: var(--name-hero-bg);
     inset: 0;
     height: 290px;
     margin: auto;
@@ -82,13 +82,13 @@
   }
 
   .name-hero h1 em {
-    color: rgb(0 0 0 / 30%);
+    color: var(--name-hero-em-color);
     font-style: normal;
     font-weight: 700;
   }
 
   .name-hero p {
-    color: rgb(0 0 0 / 75%);
+    color: var(--name-hero-p-color);
     font-size: 0.85em;
     line-height: 1.5;
     margin: 0 8px 0 0;
@@ -101,7 +101,7 @@
   }
 
   .link-text-color {
-    color: rgb(0 0 0 / 75%)
+    color: var(--link-text-color);
   }
 
   .icon-center {

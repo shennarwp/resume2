@@ -1,5 +1,5 @@
-<script>
-  const interests = [
+<script lang="ts">
+  const interests: string[] = [
     'Aviation',
     'Self-hosting',
     'Travelling',
@@ -24,9 +24,9 @@
   }
 
   .skill-set li {
-    background: rgb(0 0 0 / 75%);
+    background: var(--skill-set-bg);
     border-radius: 5px;
-    color: #fff;
+    color: var(--skill-set-color);
     display: inline-block;
     list-style: none;
     margin: 5px 5px 0 0;
@@ -36,6 +36,6 @@
   }
 
   .skill-set li:hover {
-    background: #3498db;
+    background: var(--skill-set-hover-bg);
   }
 </style>

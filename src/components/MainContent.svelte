@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Experience from './Experience.svelte';
   import Skills from './Skills.svelte';
   import Interests from './Interests.svelte';
@@ -31,11 +31,16 @@
   }
 
   :global(.inner p) {
-    color: rgb(0 0 0 / 50%);
+    color: var(--inner-p-color);
   }
 
   :global(.inner p em) {
-    color: rgb(0 0 0 / 100%);
+    color: var(--inner-p-em-color);
+    font-style: normal;
+  }
+
+  :global(.inner ul li) {
+    color: var(--inner-li-color);
     font-style: normal;
   }
 

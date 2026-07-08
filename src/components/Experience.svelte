@@ -1,5 +1,23 @@
-<script>
-  const experiences = [
+<script lang="ts">
+  interface ExperienceItem {
+    period: string;
+    company: string;
+    position: string;
+    subtitle?: string | null;
+    branch?: string | null;
+    items: string[];
+  }
+
+  interface EducationItem {
+    period: string;
+    school: string;
+    degree: string;
+    grade: string;
+    description: string;
+    items: string[];
+  }
+
+  const experiences: ExperienceItem[] = [
     {
       period: "Juli 2026 - jetzt",
       company: "FourEnergy GmbH",
@@ -55,7 +73,7 @@
     }
   ];
 
-  const education = [
+  const education: EducationItem[] = [
     {
       period: "Oktober 2016 - September 2020",
       school: "Hochschule für Technik und Wirtschaft des Saarlandes",
@@ -108,7 +126,7 @@
   }
 
   hr.solid {
-    border: 1px solid rgb(0 0 0 / 20%);
+    border: var(--hr-solid-border);
     margin: 1.5em 0;
   }
 

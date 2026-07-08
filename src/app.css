@@ -11,7 +11,6 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  color: #333332;
   font-family: "EB Garamond", serif;
   font-size: 22px;
   font-optical-sizing: auto;
@@ -23,17 +22,17 @@ body {
 }
 
 h1 {
-  color: rgb(0 0 0 / 75%);
+  color: var(--h1-color);
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--link-color);
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+  color: var(--link-hover-color);
 }
 
 button {
@@ -43,13 +42,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-bg-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--button-hover-border-color);
 }
 
 button:focus,
@@ -93,11 +92,52 @@ button:focus-visible {
   }
 }
 
+/* Light Mode */
 @media (prefers-color-scheme: light) {
-  a:hover {
-    color: #747bff;
+  body {
+    --body-color: #333332;
+    --h1-color: rgb(0 0 0 / 75%);
+    --link-color: #646cff;
+    --link-hover-color: #747bff;
+    --button-bg-color: #f9f9f9;
+    --button-hover-border-color: #646cff;
+    --left-sidebar-bg: rgb(0 0 0 / 2.5%);
+    --left-sidebar-border: 1px solid rgb(0 0 0 / 5%);
+    --name-hero-bg: rgb(0 0 0 / 0.1%);
+    --name-hero-em-color: rgb(0 0 0 / 30%);
+    --name-hero-p-color: rgb(0 0 0 / 75%);
+    --link-text-color: rgb(0 0 0 / 75%);
+    --inner-p-color: rgb(0 0 0 / 50%);
+    --inner-p-em-color: rgb(0 0 0 / 100%);
+    --skill-set-bg: rgb(0 0 0 / 75%);
+    --skill-set-color: #fff;
+    --skill-set-hover-bg: #3498db;
+    --hr-solid-border: 1px solid rgb(0 0 0 / 20%);
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #272727; /* Main content background */
+    --body-color: rgba(255, 255, 255, 0.87);
+    --h1-color: rgba(255, 255, 255, 0.87);
+    --link-color: #8888ff;
+    --link-hover-color: #535bf2;
+    --button-bg-color: #1a1a1a;
+    --button-hover-border-color: #646cff;
+    --left-sidebar-bg: rgb(255 255 255 / 2.5%); /* Left sidebar background */
+    --left-sidebar-border: 1px solid rgb(255 255 255 / 5%);
+    --name-hero-bg: rgb(255 255 255 / 0.1%);
+    --name-hero-em-color: rgb(255 255 255 / 30%);
+    --name-hero-p-color: rgb(255 255 255 / 75%);
+    --link-text-color: rgb(255 255 255 / 75%);
+    --inner-p-color: rgb(255 255 255 / 50%);
+    --inner-p-em-color: rgb(255 255 255 / 100%);
+    --inner-li-color: rgb(255 255 255 / 100%);
+    --skill-set-bg: rgb(255 255 255 / 75%);
+    --skill-set-color: #000;
+    --skill-set-hover-bg: #3498db;
+    --hr-solid-border: 1px solid rgb(255 255 255 / 20%);
   }
 }
