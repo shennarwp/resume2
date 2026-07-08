@@ -1,5 +1,5 @@
-<script lang="ts">
-  const interests: string[] = [
+<script>
+  const interests = [
     'Aviation',
     'Self-hosting',
     'Travelling',

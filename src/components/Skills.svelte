@@ -1,5 +1,5 @@
-<script lang="ts">
-  const skills: string[] = [
+<script>
+  const skills = [
     'Java',
     'Kotlin',
     'Spring Boot',

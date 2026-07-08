@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import Experience from './Experience.svelte';
   import Skills from './Skills.svelte';
   import Interests from './Interests.svelte';

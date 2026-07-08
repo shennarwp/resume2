@@ -1,23 +1,5 @@
-<script lang="ts">
-  interface ExperienceItem {
-    period: string;
-    company: string;
-    position: string;
-    subtitle?: string | null;
-    branch?: string | null;
-    items: string[];
-  }
-
-  interface EducationItem {
-    period: string;
-    school: string;
-    degree: string;
-    grade: string;
-    description: string;
-    items: string[];
-  }
-
-  const experiences: ExperienceItem[] = [
+<script>
+  const experiences = [
     {
       period: "Juli 2026 - jetzt",
       company: "FourEnergy GmbH",
@@ -73,7 +55,7 @@
     }
   ];
 
-  const education: EducationItem[] = [
+  const education = [
     {
       period: "Oktober 2016 - September 2020",
       school: "Hochschule für Technik und Wirtschaft des Saarlandes",

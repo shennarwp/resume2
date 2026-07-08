@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import shennaImg from '../assets/shenna.jpg';
 </script>
 
