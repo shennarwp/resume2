@@ -8,4 +8,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx:1.27-alpine-slim
-COPY --from=builder /app/dist /usr/share/nginx/html/
+# SvelteKit with adapter-static outputs to 'build' by default
+COPY --from=builder /app/build /usr/share/nginx/html/
+# Port 80 is the default for nginx
+EXPOSE 80

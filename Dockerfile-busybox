@@ -10,5 +10,6 @@ RUN npm run build
 FROM lipanski/docker-static-website:2.4.0
 USER static
 WORKDIR /home/static
-COPY --from=builder /app/dist .
+# SvelteKit with adapter-static defaults to 'build' folder
+COPY --from=builder /app/build .
 CMD ["/busybox-httpd", "-f", "-v", "-p", "80", "-c", "httpd.conf"]
