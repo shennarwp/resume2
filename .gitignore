@@ -8,17 +8,31 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+
+# Output
 dist
 dist-ssr
 *.local
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
+.junie
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

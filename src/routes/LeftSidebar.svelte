@@ -1,5 +1,5 @@
 <script>
-  import shennaImg from '/shenna.webp';
+  import shennaImg from '$lib/assets/shenna.webp';
 </script>
 
 <div class="left">
