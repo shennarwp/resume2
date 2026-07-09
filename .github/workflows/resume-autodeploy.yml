@@ -174,7 +174,7 @@ jobs:
     name: Deploy to oracle vm
     environment:
       name: oracle
-      url: https://shennarwp.com/cv/
+      url: https://shenna.rwpiri.com
     runs-on: ubuntu-latest
     needs: [ build-and-push ]
     env:
@@ -233,10 +233,10 @@ jobs:
 
     steps:
       - name: Check the deployed service URL
-        uses: jtalk/url-health-check-action@v4
+        uses: jtalk/url-health-check-action@v5
         with:
           # Check the following URLs one by one sequentially
-          url: https://shennarwp.com/cv/|https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/|https://victorious-moss-02a509500.7.azurestaticapps.net/
+          url: https://shennarwp.com/cv/|https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/|https://victorious-moss-02a509500.7.azurestaticapps.net/|https://shenna.rwpiri.com
           follow-redirect: false # Optional, defaults to "false"
           max-attempts: 5
           retry-delay: 10s
