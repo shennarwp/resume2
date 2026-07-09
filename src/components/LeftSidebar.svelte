@@ -9,18 +9,13 @@
       <h1>Shenna Risqianto Wilfred <em>Piri</em></h1>
       <p>Saarbrücken</p>
       <p>
-        <a href="https://shennarwp.com/cv/" target="_blank" class="link-text-color">
-          https://shennarwp.com/cv/
+        <a href="https://shenna.rwpiri.com" target="_blank" class="link-text-color">
+          shenna.rwpiri.com
         </a>&ensp;
       </p>
       <p>
         <a href="mailto:shenna@rwpiri.com" class="link-text-color">
           shenna@rwpiri.com
-        </a>&ensp;
-      </p>
-      <p>
-        <a href="mailto:shennawew@outlook.com" class="link-text-color">
-          shennawew@outlook.com
         </a>&ensp;
       </p>
       <p>
