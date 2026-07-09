@@ -1,6 +1,6 @@
-# shennarwp's resume
+# shennarwp's résumé
 
-This is my resume source code, developed further based on this 
+This is my résumé source code, developed further based on this
 [template by Anthony Adamski](https://codepen.io/aja9104/pen/nzaZwW).
 
 Live version can be seen on [shenna.rwpiri.com](https://shenna.rwpiri.com) or hosted here:
@@ -9,4 +9,4 @@ Live version can be seen on [shenna.rwpiri.com](https://shenna.rwpiri.com) or ho
 - [Azure Static Web App](https://victorious-moss-02a509500.7.azurestaticapps.net/)
 - [GitHub Pages](https://shennarwp.github.io/resume2/)
 
-This repository is intended to learn the use of GitHub Action with Azure + self hosted environment (Hetzner) to perform CI/CD.
+This repository is intended to learn the use of GitHub Action with Azure + self-hosted environment (Hetzner) to perform CI/CD.
