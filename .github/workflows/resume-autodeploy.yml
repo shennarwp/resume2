@@ -73,7 +73,7 @@ jobs:
         id: build-push-busybox
         uses: docker/build-push-action@v6
         with:
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           file: Dockerfile-busybox
           push: true
           sbom: true
@@ -85,7 +85,7 @@ jobs:
         id: build-push-nginx
         uses: docker/build-push-action@v6
         with:
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           file: Dockerfile-nginx
           push: true
           sbom: true
