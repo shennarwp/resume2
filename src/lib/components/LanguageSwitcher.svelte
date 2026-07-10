@@ -23,7 +23,7 @@
   .language-switcher button {
     background: none;
     border: none; /* Remove individual button borders */
-    padding: 3px 5px;
+    padding: 2px 3px;
     cursor: pointer;
     color: var(--text-color, #333); /* Use a variable or default color */
     transition: background-color 0.2s, color 0.2s;

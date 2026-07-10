@@ -10,24 +10,24 @@
     "fourEnergy": {
       "period": "Juli 2026 - Sekarang",
       "company": "FourEnergy GmbH",
-      "position": "Konsultan IT Senior",
-      "subtitle": "Pengembang Full-Stack",
+      "position": "Senior Konsultan IT",
+      "subtitle": "Full-Stack Developer",
       "items": []
     },
     "exxeta_2026": {
       "period": "2025 - Juni 2026",
       "company": "Exxeta AG",
-      "position": "Pengembang Full-Stack",
+      "position": "Full-Stack Developer",
       "branch": "Perbankan / Investasi",
       "items": [
-        "Bekerja sama dengan klien untuk mengimplementasikan fitur baik di frontend maupun backend platform investasi (SpringBoot, Java & Kotlin, Vue).",
-        "Mendukung klien selama fase pengujian dan menyelesaikan bug selama rilis."
+        "Bekerja sama dengan klien untuk mengimplementasikan fitur di sebuah platform investasi baik di frontend maupun backend (SpringBoot, Java & Kotlin, Vue).",
+        "Mendukung klien selama fase pengujian dan memperbaiki bug setelah rilis."
       ]
     },
     "exxeta_2025": {
       "period": "2025",
       "company": "Exxeta AG",
-      "position": "Pengembang Full-Stack",
+      "position": "Full-Stack Developer",
       "branch": "Asuransi",
       "items": [
         "Mengatasi kerentanan perangkat lunak dengan mengintegrasikan alat kualitas kode dan memperbarui dependensi secara teratur.",
@@ -37,10 +37,10 @@
     "exxeta_2021": {
       "period": "2021 - 2024",
       "company": "Exxeta AG",
-      "position": "Pengembang Full-Stack dan Wakil Pemimpin Proyek",
+      "position": "Full-Stack Developer dan Asisten Lead Proyek",
       "branch": "Otomotif",
       "items": [
-        "Mengimplementasikan fungsionalitas baru berdasarkan persyaratan teknis klien (Spring Boot, Angular).",
+        "Mengimplementasikan fitur baru berdasarkan persyaratan teknis klien (Spring Boot, Angular).",
         "Mengintegrasikan sistem dengan penyedia eksternal melalui antarmuka REST yang aman.",
         "Memberikan dukungan dan konsultasi sepanjang siklus pengembangan perangkat lunak hingga operasi harian di negara-negara di Eropa, Asia, dan Amerika.",
         "Memperbarui platform teknologi yang digunakan secara teratur (Spring Boot, Java, Angular, Maven).",
@@ -51,11 +51,11 @@
     "dillinger": {
       "period": "September 2019 - Maret 2020",
       "company": "AG der Dillinger Hüttenwerke",
-      "position": "Mahasiswa Sarjana",
+      "position": "Mahasiswa Sarjana Intern",
       "branch": "Industri Baja",
       "items": [
         "Menyesuaikan subsistem agar berbagai jenis database (SQL dan NoSQL) dapat dengan mudah ditukar.",
-        "Memperdalam pengetahuan tentang penerapan arsitektur perangkat lunak perusahaan (Domain Driven Design, Hexagonal Architecture).",
+        "Memperdalam pengetahuan tentang penerapan enterprise software architectures (Domain Driven Design, Hexagonal Architecture).",
         "Mendukung rekan kerja dalam memigrasi berbagai alat dan perangkat lunak infrastruktur ke Docker."
       ]
     }
@@ -69,7 +69,7 @@
       "grade": "2,5",
       "description": "Nilai keseluruhan 2,5. Meletakkan dasar yang kuat untuk analisis sistematis dan penyelesaian masalah. Mata pelajaran meliputi database, analisis data, sistem terdistribusi, dan pengambilan informasi. Contoh proyek:",
       "items": [
-        "Program kalender janji temu klien-server kecil. Bertanggung jawab untuk backend (REST API, database). Ditulis dalam Java.",
+        "Program kecil kalender janji temu klien-server. Bertanggung jawab untuk backend (REST API, database). Ditulis dalam Java.",
         "Mesin pencari mini yang mampu mengembalikan dokumen relevan dari arsip artikel New York Times. Menggunakan Elasticsearch sebagai database."
       ]
     }
@@ -82,7 +82,7 @@
     "items": {
       "aviation": "Penerbangan",
       "self_hosting": "Self-hosting",
-      "travelling": "Bepergian",
+      "travelling": "Travel",
       "cooking": "Memasak"
     }
   }
