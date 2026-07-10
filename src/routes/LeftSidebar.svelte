@@ -1,9 +1,13 @@
 <script>
   import shennaImg from '$lib/assets/shenna.webp';
+  import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 </script>
 
 <div class="left">
   <div class="name-hero">
+    <div class="language-switcher-mobile">
+      <LanguageSwitcher />
+    </div>
     <div class="me-img" style="background-image: url({shennaImg})"></div>
     <div class="name-text">
       <h1>Shenna Risqianto Wilfred <em>Piri</em></h1>
@@ -104,6 +108,10 @@
     align-items: center;
   }
 
+  .language-switcher-mobile {
+    display: none; /* Hidden by default */
+  }
+
   /* Mobile: move sidebar to top and make it full-width */
   @media (max-width: 768px) {
     .left {
@@ -132,6 +140,14 @@
 
     .name-hero .name-text {
       width: 100%;
+    }
+
+    .language-switcher-mobile {
+      display: block; /* Show on mobile */
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
     }
 
     /* ensure main content stacks below */

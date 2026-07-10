@@ -1,0 +1,89 @@
+{
+  "language": {
+    "en": "English",
+    "de": "German",
+    "id": "Indonesian"
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "branch_label": "Branch",
+    "fourEnergy": {
+      "period": "July 2026 - Present",
+      "company": "FourEnergy GmbH",
+      "position": "Senior IT-Consultant",
+      "subtitle": "Full-Stack Developer",
+      "items": []
+    },
+    "exxeta_2026": {
+      "period": "2025 - June 2026",
+      "company": "Exxeta AG",
+      "position": "Full-Stack Developer",
+      "branch": "Banking / Investment",
+      "items": [
+        "Collaborated with the client to implement features in both the frontend and backend of an investment platform (SpringBoot, Java & Kotlin, Vue).",
+        "Supported the client during the testing phase and resolved bugs during release."
+      ]
+    },
+    "exxeta_2025": {
+      "period": "2025",
+      "company": "Exxeta AG",
+      "position": "Full-Stack Developer",
+      "branch": "Insurance",
+      "items": [
+        "Addressed software vulnerabilities by integrating code quality tools and regularly updating dependencies.",
+        "Migrated CI/CD infrastructure and code repository from GitHub and Jenkins to GitLab."
+      ]
+    },
+    "exxeta_2021": {
+      "period": "2021 - 2024",
+      "company": "Exxeta AG",
+      "position": "Full-Stack Developer and Deputy Project Lead",
+      "branch": "Automotive",
+      "items": [
+        "Implemented new functionalities based on technical client requirements (Spring Boot, Angular).",
+        "Integrated the system with external providers via a secured REST interface.",
+        "Provided support and consultation throughout the software development lifecycle up to daily operations in countries across Europe, Asia, and America.",
+        "Regularly updated the technology platform used (Spring Boot, Java, Angular, Maven).",
+        "Migrated infrastructure to Azure and maintained the running application in a Kubernetes cluster.",
+        "Integrated Kafka/Azure Eventhub for asynchronous message transfer between microservices."
+      ]
+    },
+    "dillinger": {
+      "period": "September 2019 - March 2020",
+      "company": "AG der Dillinger Hüttenwerke",
+      "position": "Bachelor Student",
+      "branch": "Steel Industry",
+      "items": [
+        "Adapted a subsystem to easily swap between different database types (SQL and NoSQL).",
+        "Deepened knowledge of applying enterprise software architectures (Domain Driven Design, Hexagonal Architecture).",
+        "Supported colleagues in migrating various tools and infrastructure software to Docker."
+      ]
+    }
+  },
+  "education": {
+    "title": "Education",
+    "hstw": {
+      "period": "October 2016 - September 2020",
+      "school": "Hochschule für Technik und Wirtschaft des Saarlandes",
+      "degree": "B.Sc. in Practical Informatics",
+      "grade": "2.5",
+      "description": "Overall grade 2.5. Laid a solid foundation for systematic problem analysis and resolution. Subjects included databases, data analysis, distributed systems, and information retrieval. Example projects:",
+      "items": [
+        "A small client-server appointment calendar program. Responsible for the backend (REST API, database). Written in Java.",
+        "A mini search engine capable of returning relevant documents from the New York Times article archive. Using Elasticsearch as a database."
+      ]
+    }
+  },
+  "skills": {
+    "title": "Tools & Skills"
+  },
+  "interests": {
+    "title": "Personal Interests",
+    "items": {
+      "aviation": "Aviation",
+      "self_hosting": "Self-hosting",
+      "travelling": "Travelling",
+      "cooking": "Cooking"
+    }
+  }
+}

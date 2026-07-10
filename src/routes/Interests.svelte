@@ -1,12 +1,19 @@
 <script>
-  const interests = ['Aviation', 'Self-hosting', 'Travelling', 'Cooking'];
+  import { t } from 'svelte-i18n';
+
+  const interests = [
+    'aviation',
+    'self_hosting',
+    'travelling',
+    'cooking'
+  ];
 </script>
 
 <section>
-  <h1>Persönliche Interessen</h1>
+  <h1>{$t('interests.title')}</h1>
   <ul class="skill-set">
     {#each interests as interest (interest)}
-      <li>{interest}</li>
+      <li>{$t(`interests.items.${interest}`)}</li>
     {/each}
   </ul>
 </section>

@@ -1,4 +1,6 @@
 <script>
+  import { t } from 'svelte-i18n';
+
   const skills = [
     'Java',
     'Kotlin',
@@ -21,7 +23,7 @@
 </script>
 
 <section>
-  <h1>Tools & Skills</h1>
+  <h1>{$t('skills.title')}</h1>
   <ul class="skill-set">
     {#each skills as skill (skill)}
       <li>{skill}</li>

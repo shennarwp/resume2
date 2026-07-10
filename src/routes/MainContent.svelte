@@ -2,9 +2,13 @@
   import Experience from './Experience.svelte';
   import Skills from './Skills.svelte';
   import Interests from './Interests.svelte';
+  import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 </script>
 
 <div class="right">
+  <div class="language-switcher-desktop">
+    <LanguageSwitcher />
+  </div>
   <div class="inner">
     <Experience />
     <Skills />
@@ -48,6 +52,13 @@
     margin: 0px auto;
   }
 
+  .language-switcher-desktop {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+  }
+
   /* Mobile: stack main content under the sidebar */
   @media (max-width: 768px) {
     .right {
@@ -57,6 +68,10 @@
 
     .inner {
       padding: 2em;
+    }
+
+    .language-switcher-desktop {
+      display: none; /* Hide on mobile, shown in LeftSidebar */
     }
   }
 </style>
