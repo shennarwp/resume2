@@ -16,24 +16,26 @@
   .language-switcher {
     display: flex;
     align-items: center;
-    gap: 0; /* Remove gap for switch-like appearance */
+    gap: 0;
     border-radius: 4px;
-    overflow: hidden; /* Ensures rounded corners apply to the whole switch */
+    overflow: hidden;
   }
   .language-switcher button {
     background: none;
-    border: none; /* Remove individual button borders */
+    border: none;
     padding: 2px 3px;
     cursor: pointer;
-    color: var(--text-color, #333); /* Use a variable or default color */
-    transition: background-color 0.2s, color 0.2s;
+    color: var(--text-color, #333);
+    transition:
+      background-color 0.2s,
+      color 0.2s;
     font-size: 0.6em;
   }
   .language-switcher button:hover {
     background-color: var(--button-hover-bg, #e0e0e0);
   }
   .language-switcher button.active {
-    background-color: var(--primary-color, #404040); /* Active background */
+    background-color: var(--primary-color, #404040);
     color: white;
   }
 </style>

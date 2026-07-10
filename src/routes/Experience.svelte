@@ -4,7 +4,7 @@
   const experiences = [
     {
       key: 'fourEnergy',
-      period: 'Juli 2026 - jetzt', // This will be overridden by translation
+      period: 'Juli 2026 - jetzt',
       company: 'FourEnergy GmbH',
       branch: null,
     },
@@ -45,17 +45,22 @@
     <p>
       {$t(`experience.${exp.key}.period`)}
       <em>
-        {exp.company} | {$t(`experience.${exp.key}.position`)}{$t(`experience.${exp.key}.subtitle`, {
-          default: '',
-        }) ? ' | ' + $t(`experience.${exp.key}.subtitle`) : ''}
+        {exp.company} | {$t(`experience.${exp.key}.position`)}{$t(
+          `experience.${exp.key}.subtitle`,
+          {
+            default: '',
+          },
+        )
+          ? ' | ' + $t(`experience.${exp.key}.subtitle`)
+          : ''}
       </em>
     </p>
     {#if $t(`experience.${exp.key}.branch`, { default: '' })}
       <p>{$t('experience.branch_label')}: {$t(`experience.${exp.key}.branch`)}</p>
     {/if}
-    {#if $t(`experience.${exp.key}.items`, { default: [] }).length > 0}
+    {#if $t(`experience.${exp.key}.items`, { default: undefined }).length > 0}
       <ul>
-        {#each $t(`experience.${exp.key}.items`) as item}
+        {#each $t(`experience.${exp.key}.items`) as item (item)}
           <li>{item}</li>
         {/each}
       </ul>
@@ -66,12 +71,12 @@
   {/each}
 
   <h1>{$t('education.title')}</h1>
-  {#each education as edu}
+  {#each education as edu (edu.key)}
     <p>{$t(`education.${edu.key}.period`)} <em> {edu.school}</em></p>
     <p>{$t(`education.${edu.key}.degree`)}</p>
     <p>{$t(`education.${edu.key}.description`)}</p>
     <ul>
-      {#each $t(`education.${edu.key}.items`) as item}
+      {#each $t(`education.${edu.key}.items`) as item (item)}
         <li>{item}</li>
       {/each}
     </ul>

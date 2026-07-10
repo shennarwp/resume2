@@ -49,7 +49,7 @@
   }
 
   :global(.inner section) {
-    margin: 0px auto;
+    margin: 0 auto;
   }
 
   .language-switcher-desktop {

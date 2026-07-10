@@ -4,8 +4,8 @@
 </script>
 
 <svelte:head>
-  <title>Shenna Rwp's résumé</title>
-  <meta name="description" content="Shenna Rwp's résumé" />
+  <title>Shenna RWP's résumé</title>
+  <meta name="description" content="Shenna RWP's résumé" />
 </svelte:head>
 
 <div class="text-column">

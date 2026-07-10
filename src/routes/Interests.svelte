@@ -1,12 +1,7 @@
 <script>
   import { t } from 'svelte-i18n';
 
-  const interests = [
-    'aviation',
-    'self_hosting',
-    'travelling',
-    'cooking'
-  ];
+  const interests = ['aviation', 'self_hosting', 'travelling', 'cooking'];
 </script>
 
 <section>
