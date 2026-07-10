@@ -7,9 +7,9 @@
 </script>
 
 <div class="language-switcher">
-  <button on:click={() => setLocale('de')} class:active={$locale === 'de'}><b>DE</b></button>
-  <button on:click={() => setLocale('en')} class:active={$locale === 'en'}><b>EN</b></button>
-  <button on:click={() => setLocale('id')} class:active={$locale === 'id'}><b>ID</b></button>
+  <button onclick={() => setLocale('de')} class:active={$locale === 'de'}><b>DE</b></button>
+  <button onclick={() => setLocale('en')} class:active={$locale === 'en'}><b>EN</b></button>
+  <button onclick={() => setLocale('id')} class:active={$locale === 'id'}><b>ID</b></button>
 </div>
 
 <style>

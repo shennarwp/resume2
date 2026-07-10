@@ -1,9 +1,11 @@
 <script lang="ts">
   import favicon from '$lib/assets/favicon.png';
   import '../app.css';
-  import '$lib/i18n'; // Import to initialize svelte-i18n
+  // import { i18nReady } from '$lib/i18n'; // No longer needed here
 
   let { children } = $props();
+
+  // await i18nReady; // Removed this line
 </script>
 
 <svelte:head>
