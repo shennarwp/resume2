@@ -114,6 +114,15 @@ button:focus-visible {
     --skill-set-hover-bg: #3498db;
     --hr-solid-border: 1px solid rgb(0 0 0 / 20%);
     --me-img-border: #333332;
+
+    /* Language Switcher Light Mode */
+    --language-switcher-border-color: #ccc;
+    --language-switcher-button-bg: #f0f0f0;
+    --language-switcher-button-text-color: #333;
+    --language-switcher-button-hover-bg: #e0e0e0;
+    --language-switcher-button-active-bg: #404040;
+    --language-switcher-button-active-text-color: white;
+    --language-switcher-icon-color: #555;
   }
 }
 
@@ -141,5 +150,14 @@ button:focus-visible {
     --skill-set-hover-bg: #3498db;
     --hr-solid-border: 1px solid rgb(255 255 255 / 20%);
     --me-img-border: #6c6c6c;
+
+    /* Language Switcher Dark Mode */
+    --language-switcher-border-color: #555;
+    --language-switcher-button-bg: #333;
+    --language-switcher-button-text-color: #eee;
+    --language-switcher-button-hover-bg: #444;
+    --language-switcher-button-active-bg: #e4e4e4;
+    --language-switcher-button-active-text-color: #2c2c2c;
+    --language-switcher-icon-color: #bbb;
   }
 }
