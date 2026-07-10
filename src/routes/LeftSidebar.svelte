@@ -14,14 +14,10 @@
         </a>&ensp;
       </p>
       <p>
-        <a href="mailto:shenna@rwpiri.com" class="link-text-color">
-          shenna@rwpiri.com
-        </a>&ensp;
+        <a href="mailto:shenna@rwpiri.com" class="link-text-color"> shenna@rwpiri.com </a>&ensp;
       </p>
       <p>
-        <a href="tel:+49 1525 7523364" class="link-text-color">
-          +49 1525 7523364
-        </a>&ensp;
+        <a href="tel:+49 1525 7523364" class="link-text-color"> +49 1525 7523364 </a>&ensp;
       </p>
       <div class="icon-center">
         <a href="https://github.com/shennarwp/" target="_blank" title="github link">
@@ -74,7 +70,7 @@
   }
 
   .name-hero h1 {
-    font-family: "EB Garamond", serif;
+    font-family: 'EB Garamond', serif;
     font-size: 2em;
     text-align: center;
   }
@@ -115,7 +111,7 @@
       width: 100%;
       float: none;
       border-right: none;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       min-width: auto;
       margin-left: 0;
     }

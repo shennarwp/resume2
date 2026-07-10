@@ -11,7 +11,7 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: "EB Garamond", serif;
+  font-family: 'EB Garamond', serif;
   font-size: 22px;
   font-optical-sizing: auto;
   font-weight: 450;
@@ -62,7 +62,7 @@ button:focus-visible {
 }
 
 .clearfix::after {
-  content: " ";
+  content: ' ';
   visibility: hidden;
   display: block;
   height: 0;
@@ -140,6 +140,6 @@ button:focus-visible {
     --skill-set-color: #000;
     --skill-set-hover-bg: #3498db;
     --hr-solid-border: 1px solid rgb(255 255 255 / 20%);
-    --me-img-border: #6C6C6C;
+    --me-img-border: #6c6c6c;
   }
 }

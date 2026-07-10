@@ -1,10 +1,5 @@
 <script>
-  const interests = [
-    'Aviation',
-    'Self-hosting',
-    'Travelling',
-    'Cooking'
-  ];
+  const interests = ['Aviation', 'Self-hosting', 'Travelling', 'Cooking'];
 </script>
 
 <section>

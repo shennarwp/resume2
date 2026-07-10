@@ -16,7 +16,7 @@
     'Elastic-Stack',
     'Docker',
     'Kubernetes',
-    'HTML / CSS / Java- / Typescript'
+    'HTML / CSS / Java- / Typescript',
   ];
 </script>
 
