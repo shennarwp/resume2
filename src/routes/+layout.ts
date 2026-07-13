@@ -1,10 +1,22 @@
-import '$lib/i18n';
-import { i18nReady } from '$lib/i18n';
+import { initI18n } from '$lib/i18n';
+import type { LayoutLoad } from './$types';
 
 export const prerender = true;
 export const trailingSlash = 'always';
 
-export async function load() {
-  await i18nReady;
+export const load: LayoutLoad = async () => {
+  let initialLocale = 'en';
+
+  if (typeof navigator !== 'undefined' && navigator.language) {
+    const browserLang = navigator.language.split('-')[0]; // e.g., "en-US" -> "en"
+    if (browserLang === 'de') {
+      initialLocale = 'de';
+    } else if (browserLang === 'id') {
+      initialLocale = 'id';
+    }
+  }
+
+  await initI18n(initialLocale);
+
   return {};
-}
+};

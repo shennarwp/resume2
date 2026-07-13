@@ -60,7 +60,7 @@
     {/if}
     {#if ($json(`experience.${exp.key}.items`) as string[]).length > 0}
       <ul>
-        {#each ($json(`experience.${exp.key}.items`) as string[]) as item (item)}
+        {#each $json(`experience.${exp.key}.items`) as string[] as item (item)}
           <li>{item}</li>
         {/each}
       </ul>
@@ -76,7 +76,7 @@
     <p>{$t(`education.${edu.key}.degree`)}</p>
     <p>{$t(`education.${edu.key}.description`)}</p>
     <ul>
-      {#each ($json(`education.${edu.key}.items`) as string[]) as item (item)}
+      {#each $json(`education.${edu.key}.items`) as string[] as item (item)}
         <li>{item}</li>
       {/each}
     </ul>
