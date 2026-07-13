@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { t } from 'svelte-i18n';
+  import { t, json } from 'svelte-i18n';
 
   const experiences = [
     {
@@ -58,9 +58,9 @@
     {#if $t(`experience.${exp.key}.branch`, { default: '' })}
       <p>{$t('experience.branch_label')}: {$t(`experience.${exp.key}.branch`)}</p>
     {/if}
-    {#if $t(`experience.${exp.key}.items`, { default: undefined }).length > 0}
+    {#if ($json(`experience.${exp.key}.items`) as string[]).length > 0}
       <ul>
-        {#each $t(`experience.${exp.key}.items`) as item (item)}
+        {#each ($json(`experience.${exp.key}.items`) as string[]) as item (item)}
           <li>{item}</li>
         {/each}
       </ul>
@@ -76,7 +76,7 @@
     <p>{$t(`education.${edu.key}.degree`)}</p>
     <p>{$t(`education.${edu.key}.description`)}</p>
     <ul>
-      {#each $t(`education.${edu.key}.items`) as item (item)}
+      {#each ($json(`education.${edu.key}.items`) as string[]) as item (item)}
         <li>{item}</li>
       {/each}
     </ul>
