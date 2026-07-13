@@ -4,7 +4,7 @@ import type { LayoutLoad } from './$types';
 export const prerender = true;
 export const trailingSlash = 'always';
 
-export const load: LayoutLoad = async ({ url }) => { // Destructure url from the load context
+export const load: LayoutLoad = async ({ url }) => {
   let initialLocale = 'en';
 
   if (typeof navigator !== 'undefined' && navigator.language) {
@@ -22,6 +22,6 @@ export const load: LayoutLoad = async ({ url }) => { // Destructure url from the
   const includeAnalytics = url.hostname === 'shenna.rwpiri.com';
 
   return {
-    includeAnalytics // Pass the flag to the layout component
+    includeAnalytics, // Pass the flag to the layout component
   };
 };
