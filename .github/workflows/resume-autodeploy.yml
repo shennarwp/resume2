@@ -157,8 +157,6 @@ jobs:
     needs: [build-and-push]
     env:
       DEPLOYED_TAG: ${{ needs.build-and-push.outputs.tag }}
-    # Only run on branch pushes
-    #if: github.event_name == 'push' && github.ref_type == 'branch'
 
     steps:
       - name: Deploy to hetzner
@@ -259,7 +257,6 @@ jobs:
     name: Check all urls after deployment
     runs-on: ubuntu-latest
     needs: [build-and-push, deploy-azure-container-apps, deploy-hetzner, deploy-oracle, deploy-azure-static-web]
-    # Only run if a deployment happened (branch push or valid tag)
     if: github.event_name == 'push' && (github.ref_type == 'branch' || needs.build-and-push.outputs.is_tag_deploy == 'true')
 
     steps:
