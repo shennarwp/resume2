@@ -23,7 +23,7 @@ jobs:
           repositories: 'resume'
           pr-retention-days: 7
           sha-retention-days: 7
-          dry-run: true
+          dry-run: false
 #          custom-patterns: '{ "^(?:nginx-|busybox-)?[0-9]{4}\.[0-9]{2}\.[0-9]{2}(-[^\s]+)?$": 3652 }'
 
 
