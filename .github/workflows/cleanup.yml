@@ -15,6 +15,7 @@ jobs:
     steps:
       - uses: dataaxiom/ghcr-cleanup-action@v1
         with:
+          package: shennarwp/resume
           use-regex: true
           skip-regex-checks: true
           exclude-tags: ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}(-[^\s]+)?$
