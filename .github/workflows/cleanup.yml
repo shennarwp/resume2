@@ -16,8 +16,8 @@ jobs:
       - uses: dataaxiom/ghcr-cleanup-action@v1
         with:
           package: resume
-          use-regex: true
-          skip-regex-checks: true
+#          use-regex: true
+#          skip-regex-checks: true
           #exclude-tags: ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}(-[^\s]+)?$
           keep-n-untagged: 10
           delete-partial-images: true
