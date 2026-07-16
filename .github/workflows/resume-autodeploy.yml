@@ -1,14 +1,14 @@
 name: Trigger auto deployment for resume
 
 on:
-  push:
-    branches: ['**']
-    tags:
-      - '**'
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches:
-      - main
+#  push:
+#    branches: ['**']
+#    tags:
+#      - '**'
+#  pull_request:
+#    types: [opened, synchronize, reopened]
+#    branches:
+#      - main
 
   # Allow manual trigger
   workflow_dispatch:
