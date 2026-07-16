@@ -28,14 +28,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Set your fix mode variables to true
-          FIX_CSS_PRETTIER: true
+          FIX_CSS_PRETTIER: false
           FIX_CSS: true
-          FIX_HTML_PRETTIER: true
-          FIX_MARKDOWN_PRETTIER: true
-          FIX_YAML_PRETTIER: true
+          FIX_HTML_PRETTIER: false
+          FIX_MARKDOWN_PRETTIER: false
+          FIX_YAML_PRETTIER: false
           FIX_JSON: true
-          FIX_JSON_PRETTIER: true
-          FIX_JAVASCRIPT_PRETTIER: true
+          FIX_JSON_PRETTIER: false
+          FIX_JAVASCRIPT_PRETTIER: false
           VALIDATE_BIOME_FORMAT: false
           VALIDATE_BIOME_LINT: false
           VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
