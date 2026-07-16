@@ -1,4 +1,4 @@
-name: Daily image cleanup
+name: Daily image cleanup dockerhub and ghcr
 
 on:
   push:
@@ -21,10 +21,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repositories: 'resume'
-          protected-tags: ^(?:nginx-|busybox-)?[0-9]{4}\.[0-9]{2}\.[0-9]{2}(-[^\s]+)?$
-          pr-retention-days: 30
+          pr-retention-days: 7
           sha-retention-days: 7
           dry-run: true
+          custom-patterns: |
+            {
+              "^(?:nginx-|busybox-)?[0-9]{4}\.[0-9]{2}\.[0-9]{2}(-[^\s]+)?$": 3652,
+            }
 
 
 
