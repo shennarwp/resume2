@@ -84,7 +84,9 @@ jobs:
           sbom: true
           tags: |
             ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
+            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-latest
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-latest
 
       - name: Build and push nginx image
         id: build-push-nginx
@@ -96,7 +98,9 @@ jobs:
           sbom: true
           tags: |
             ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
+            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-latest
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-latest
 
       - name: Attest dockerhub image
         if: github.event_name == 'push' && (github.ref_type == 'branch' || steps.check-tag.outputs.IS_TAG_DEPLOY == 'true')
