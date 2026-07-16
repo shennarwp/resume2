@@ -15,14 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: DockerHub Cleanup Action
-        uses: maxisam/dockerhub-cleanup@v0.1.8
+      - name: Clean Docker Hub
+        uses: lostlink/docker-cleanup@v1.0.1
         with:
-          namespace: ${{ secrets.DOCKERHUB_USERNAME }}
-          token: ${{ secrets.DOCKERHUB_TOKEN }}
-          repos: 'resume'
-          preserve_last: 25
-          dry_run: true
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repositories: 'resume'
+          pr-retention-days: 7
+          sha-retention-days: 7
+          dry-run: true
+          custom-patterns: '{ "*": 2 }'
 
 
 
