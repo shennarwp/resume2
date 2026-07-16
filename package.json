@@ -32,7 +32,8 @@
     "vite": "^8.0.16"
   },
   "overrides": {
-    "cookie": "^0.7.0"
+    "cookie": "^0.7.0",
+    "esbuild": "0.25.0"
   },
   "dependencies": {
     "svelte-i18n": "^4.0.1"
