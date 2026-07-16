@@ -21,8 +21,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repositories: 'shennarwp/resume'
-          rules: |
-            ^(?:nginx-|busybox-)?[0-9]{4}\.[0-9]{2}\.[0-9]{2}(-[^\s]+)?$:30, latest
+          rules: '*:30, latest'
           dry-run: true  # Only set to false after you have tested
 
 
