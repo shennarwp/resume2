@@ -19,7 +19,7 @@ jobs:
           use-regex: true
           skip-regex-checks: true
           exclude-tags: ^(?:nginx-|busybox-)?[0-9]{4}\.[0-9]{2}\.[0-9]{2}(-[^\s]+)?$
-          keep-n-tagged: 10
+          older-than: 1 month
           keep-n-untagged: 10
           delete-partial-images: true
           delete-orphaned-images: true
