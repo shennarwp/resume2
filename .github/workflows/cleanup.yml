@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repositories: 'shennarwp/resume'
           rules: '^.*$:30, nginx-latest, busybox-latest'
-          dry-run: false  # Only set to false after you have tested
+          dry-run: false # Only set to false after you have tested
 
       - name: Clean ghcr
         uses: dataaxiom/ghcr-cleanup-action@v1
