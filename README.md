@@ -10,4 +10,4 @@ Live version can be seen on [shenna.rwpiri.com](https://shenna.rwpiri.com) or ho
 - [Azure Static Web App](https://victorious-moss-02a509500.7.azurestaticapps.net/)
 - [GitHub Pages](https://shennarwp.github.io/resume2/)
 
-This repository is intended to learn the use of GitHub Action to perform CI/CD deployment within Azure + self-hosted cloud environment 
+This repository is intended to learn the use of GitHub Action to perform CI/CD deployment within Azure + self-hosted cloud environment
