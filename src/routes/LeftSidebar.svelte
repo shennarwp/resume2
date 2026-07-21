@@ -1,5 +1,5 @@
 <script>
-  import shennaImg from '$lib/assets/shenna.webp';
+  import shennaImg from '$lib/assets/shenna.webp?enhanced';
   import githubIcon from '$lib/assets/github.svg';
   import linkedinIcon from '$lib/assets/linkedin.svg';
   import instagramIcon from '$lib/assets/instagram.svg';
@@ -11,7 +11,9 @@
     <div class="language-switcher-mobile">
       <LanguageSwitcher />
     </div>
-    <div class="me-img" style="background-image: url({shennaImg})"></div>
+    <div class="me-img">
+      <enhanced:img src={shennaImg} alt="Shenna Piri" />
+    </div>
     <div class="name-text">
       <h1>Shenna Risqianto Wilfred <em>Piri</em></h1>
       <p>Saarbrücken</p>
@@ -63,17 +65,19 @@
   }
 
   .me-img {
-    background-size: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
     border-radius: 100%;
     height: 150px;
     margin: 0 auto;
+    overflow: hidden;
     position: relative;
     width: 150px;
-    border-color: var(--me-img-border);
-    border-style: solid;
-    border-width: medium;
+    border: medium solid var(--me-img-border);
+  }
+
+  .me-img :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .name-hero h1 {
