@@ -11,9 +11,9 @@ describe('LeftSidebar', () => {
 
   it('renders the profile image', () => {
     const { container } = render(LeftSidebar);
-    const imgDiv = container.querySelector('.me-img') as HTMLElement;
-    expect(imgDiv).toBeInTheDocument();
-    expect(imgDiv.style.backgroundImage).toContain('shenna.webp');
+    const img = container.querySelector('.me-img img');
+    expect(img).toBeInTheDocument();
+    expect(img?.getAttribute('src')).toContain('shenna.webp');
   });
 
   it('has social links opening in new tab', () => {
@@ -25,6 +25,22 @@ describe('LeftSidebar', () => {
     expect(githubLink).toHaveAttribute('target', '_blank');
     expect(linkedinLink).toHaveAttribute('target', '_blank');
     expect(instagramLink).toHaveAttribute('target', '_blank');
+  });
+
+  it('renders social media SVG icons', () => {
+    const { container } = render(LeftSidebar);
+    const githubImg = container.querySelector('a[title="github link"] img');
+    const linkedinImg = container.querySelector('a[title="linkedin link"] img');
+    const instagramImg = container.querySelector('a[title="instagram link"] img');
+
+    expect(githubImg).toBeInTheDocument();
+    expect(githubImg?.getAttribute('src')).toMatch(/^data:image\/svg\+xml/);
+
+    expect(linkedinImg).toBeInTheDocument();
+    expect(linkedinImg?.getAttribute('src')).toMatch(/^data:image\/svg\+xml/);
+
+    expect(instagramImg).toBeInTheDocument();
+    expect(instagramImg?.getAttribute('src')).toMatch(/^data:image\/svg\+xml/);
   });
 
   it('renders LanguageSwitcher within the correct container', () => {

@@ -40,7 +40,6 @@ jobs:
       - name: Run tests
         run: npm test -- --run
 
-
   build-and-push:
     name: Build image and push to registries
     runs-on: ubuntu-latest
