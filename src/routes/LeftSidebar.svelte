@@ -1,5 +1,8 @@
 <script>
   import shennaImg from '$lib/assets/shenna.webp';
+  import githubIcon from '$lib/assets/github.svg';
+  import linkedinIcon from '$lib/assets/linkedin.svg';
+  import instagramIcon from '$lib/assets/instagram.svg';
   import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 </script>
 
@@ -25,13 +28,13 @@
       </p>
       <div class="icon-center">
         <a href="https://github.com/shennarwp/" target="_blank" title="github link">
-          <i class="fa fa-github link-text-color" aria-hidden="true"></i>
+          <img src={githubIcon} alt="github" class="link-icon" />
         </a>&ensp;
         <a href="https://www.linkedin.com/in/shennarwp/" target="_blank" title="linkedin link">
-          <i class="fa fa-linkedin-square link-text-color" aria-hidden="true"></i>
+          <img src={linkedinIcon} alt="linkedin" class="link-icon" />
         </a>&ensp;
         <a href="https://instagram.com/shennarwp/" target="_blank" title="instagram link">
-          <i class="fa fa-instagram link-text-color" aria-hidden="true"></i>
+          <img src={instagramIcon} alt="instagram" class="link-icon" />
         </a>&ensp;
       </div>
     </div>
@@ -100,6 +103,12 @@
 
   .link-text-color {
     color: var(--link-text-color);
+  }
+
+  .link-icon {
+    height: 0.9em;
+    width: 0.9em;
+    vertical-align: middle;
   }
 
   .icon-center {
