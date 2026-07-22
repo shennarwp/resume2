@@ -96,20 +96,6 @@ jobs:
       - name: Set up buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push busybox image
-        id: build-push-busybox
-        uses: docker/build-push-action@v6
-        with:
-          platforms: linux/amd64,linux/arm64
-          file: Dockerfile-busybox
-          push: true
-          sbom: true
-          tags: |
-            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
-            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-latest
-
       - name: Build and push nginx image
         id: build-push-nginx
         uses: docker/build-push-action@v6
@@ -123,6 +109,20 @@ jobs:
             ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-latest
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}
             ${{ secrets.DOCKERHUB_USERNAME }}/resume:nginx-latest
+
+      - name: Build and push busybox image
+        id: build-push-busybox
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/amd64,linux/arm64
+          file: Dockerfile-busybox
+          push: true
+          sbom: true
+          tags: |
+            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
+            ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-latest
 
       - name: Attest dockerhub image
         if: github.event_name == 'push' && (github.ref_type == 'branch' || steps.check-tag.outputs.IS_TAG_DEPLOY == 'true')
