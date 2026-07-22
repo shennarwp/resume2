@@ -10,12 +10,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  workflow-telemetry-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Collect workflow telemetry
-        uses: catchpoint/workflow-telemetry-action@v2
-
   sonarqube:
     name: Scan code with sonarqube
     runs-on: ubuntu-latest
@@ -60,6 +54,9 @@ jobs:
       is_tag_deploy: ${{ steps.check-tag.outputs.IS_TAG_DEPLOY }}
 
     steps:
+      - name: Collect workflow telemetry
+        uses: catchpoint/workflow-telemetry-action@v2
+
       - name: Checkout to the branch
         uses: actions/checkout@v4
 
