@@ -13,7 +13,7 @@ describe('LeftSidebar', () => {
     const { container } = render(LeftSidebar);
     const imgDiv = container.querySelector('.me-img') as HTMLElement;
     expect(imgDiv).toBeInTheDocument();
-    expect(imgDiv.style.backgroundImage).toContain('shenna.webp');
+    expect(imgDiv.style.backgroundImage).toContain('shenna.avif');
   });
 
   it('has social links opening in new tab', () => {
