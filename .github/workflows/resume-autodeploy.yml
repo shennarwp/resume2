@@ -55,7 +55,7 @@ jobs:
 
     steps:
       - name: Collect workflow telemetry
-        uses: catchpoint/workflow-telemetry-action@v2
+        uses: Alaffia-Technology-Solutions/workflow-telemetry-action@v3.0.0
 
       - name: Checkout to the branch
         uses: actions/checkout@v4
