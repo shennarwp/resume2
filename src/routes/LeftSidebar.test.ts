@@ -11,9 +11,9 @@ describe('LeftSidebar', () => {
 
   it('renders the profile image', () => {
     const { container } = render(LeftSidebar);
-    const img = container.querySelector('.me-img img');
-    expect(img).toBeInTheDocument();
-    expect(img?.getAttribute('src')).toContain('shenna.webp');
+    const imgDiv = container.querySelector('.me-img') as HTMLElement;
+    expect(imgDiv).toBeInTheDocument();
+    expect(imgDiv.style.backgroundImage).toContain('shenna.webp');
   });
 
   it('has social links opening in new tab', () => {
