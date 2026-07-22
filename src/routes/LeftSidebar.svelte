@@ -12,7 +12,7 @@
       <LanguageSwitcher />
     </div>
     <div class="me-img">
-      <enhanced:img src="{shennaImg}&format=webp" alt="Shenna Piri" />
+      <enhanced:img src="{shennaImg} + '&format=webp'" alt="Shenna Piri" />
     </div>
     <div class="name-text">
       <h1>Shenna Risqianto Wilfred <em>Piri</em></h1>
