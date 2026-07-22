@@ -1,5 +1,5 @@
 <script>
-  import shennaImg from '$lib/assets/shenna.webp?enhanced';
+  import shennaImg from '$lib/assets/shenna.webp?enhanced&format=webp';
   import githubIcon from '$lib/assets/github.svg';
   import linkedinIcon from '$lib/assets/linkedin.svg';
   import instagramIcon from '$lib/assets/instagram.svg';
