@@ -63,19 +63,17 @@
   }
 
   .me-img {
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
     border-radius: 100%;
     height: 150px;
     margin: 0 auto;
-    overflow: hidden;
     position: relative;
     width: 150px;
-    border: medium solid var(--me-img-border);
-  }
-
-  .me-img :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-color: var(--me-img-border);
+    border-style: solid;
+    border-width: medium;
   }
 
   .name-hero h1 {
