@@ -1,8 +1,5 @@
 name: Test and build
 on:
-  push:
-    branches:
-      - 'renovate/**'
   pull_request:
     branches:
       - 'main'
