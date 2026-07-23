@@ -11,10 +11,10 @@ jobs:
     permissions:
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Clean dockerhub
-        uses: tripal/dockerhub_expire@v1.0.0
+        uses: tripal/dockerhub_expire@28c78713e2906919ecd6effa08e01712135a5c20 # v1.0.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -23,7 +23,7 @@ jobs:
           dry-run: false # Only set to false after you have tested
 
       - name: Clean ghcr
-        uses: dataaxiom/ghcr-cleanup-action@v1
+        uses: dataaxiom/ghcr-cleanup-action@d52806a0dc70b430571a37da1fde39733ffd640f # v1
         with:
           package: resume
           use-regex: true
