@@ -1,7 +1,7 @@
 version: '3'
 services:
   resume:
-    image: shennarwp/resume
+    image: ghcr.io/shennarwp/resume:nginx-latest
     container_name: resume
     restart: always
     expose:
