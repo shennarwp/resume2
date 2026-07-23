@@ -38,7 +38,7 @@
     "vitest": "^4.1.10"
   },
   "overrides": {
-    "cookie": "^2.0.1",
+    "cookie": "^0.7.2",
     "esbuild": "0.25.12"
   },
   "dependencies": {
