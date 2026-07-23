@@ -22,7 +22,7 @@
     "group:recommended"
   ],
 
-  "baseBranches": ["master"],
+  "baseBranches": ["main"],
   "rebaseWhen": "conflicted",
   "addLabels": ["dependencies", "renovate"],
   "rangeStrategy": "bump",
