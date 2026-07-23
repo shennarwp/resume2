@@ -2,7 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    ":autodetectPinVersions",
     ":automergePatch",
     ":prImmediately",
     ":rebaseStalePrs",
@@ -26,7 +25,6 @@
   "addLabels": ["dependencies", "renovate"],
   "rangeStrategy": "bump",
   "postUpdateOptions": ["npmDedupe", "pnpmDedupe", "yarnDedupeFewer"],
-  "transitiveRemediation": true,
   "separateMajorMinor": true,
   "lockFileMaintenance": {
     "enabled": true,
