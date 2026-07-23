@@ -37,7 +37,7 @@
     "semanticCommitScope": "security",
     "labels": ["security"]
   },
-  "automergeStrategy": "merge-commit",
+  "automergeStrategy": "rebase",
   "packageRules": [
     {
       "description": "Group major updates together",
