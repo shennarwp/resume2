@@ -6,7 +6,7 @@
     ":automergePatch",
     ":prImmediately",
     ":rebaseStalePrs",
-    ":timezone(Germany/Berlin)",
+    ":timezone(Europe/Berlin)",
     "helpers:pinGitHubActionDigests",
     "npm:unpublishSafe",
     ":semanticCommits",
