@@ -6,7 +6,7 @@
     ":automergePatch",
     ":prImmediately",
     ":rebaseStalePrs",
-    ":timezone(Australia/Melbourne)",
+    ":timezone(Germany/Berlin)",
     "helpers:pinGitHubActionDigests",
     "npm:unpublishSafe",
     ":semanticCommits",
@@ -21,7 +21,6 @@
     ":dependencyDashboard",
     "group:recommended"
   ],
-
   "baseBranches": ["main"],
   "rebaseWhen": "conflicted",
   "addLabels": ["dependencies", "renovate"],
@@ -135,46 +134,6 @@
       "matchDepNames": ["typescript"],
       "matchUpdateTypes": ["major"],
       "groupName": "typescript major"
-    },
-    {
-      "description": "Do not update postgres major versions",
-      "matchPackageNames": ["*postgres*"],
-      "matchUpdateTypes": ["major"],
-      "addLabels": ["postgres"],
-      "matchManagers": ["docker-compose", "dockerfile"],
-      "enabled": false
-    },
-    {
-      "description": "Vitest does not follow semver, minor changes are breaking changes",
-      "matchDepNames": ["vitest"],
-      "matchUpdateTypes": ["minor", "major"],
-      "addLabels": ["vitest"],
-      "groupName": "vitest"
-    },
-    {
-      "description": "Do not update mongo",
-      "matchPackageNames": ["mongo"],
-      "addLabels": ["mongo"],
-      "enabled": false
-    },
-    {
-      "description": "Do not update react major if it is 16",
-      "matchPackageNames": [
-        "react",
-        "react-dom",
-        "@types/react",
-        "@types/react-dom"
-      ],
-      "matchCurrentVersion": "^16.0.0",
-      "allowedVersions": "^16.0.0"
-    },
-    {
-      "description": "Do not update node engines minor or patch versions",
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["engines"],
-      "matchDepNames": ["node"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "enabled": false
     }
   ],
   "platform": "github",
