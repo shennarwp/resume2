@@ -4,7 +4,7 @@ LABEL maintainer="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>" \
       org.opencontainers.image.url="https://github.com/shennarwp/resume2" \
       org.opencontainers.image.title="resume" \
       org.opencontainers.image.description="Shenna RWP's résumé source code, developed further based on this. \
-        Live version can be seen on https://shenna.rwpiri.com" \
+        Live version can be seen on https://shenna.rwpiri.com"
 
 WORKDIR /app
 COPY package*.json ./
