@@ -39,7 +39,7 @@
   },
   "overrides": {
     "cookie": "^0.7.2",
-    "esbuild": "0.25.12"
+    "esbuild": "0.28.1"
   },
   "dependencies": {
     "svelte-i18n": "^4.0.1"
