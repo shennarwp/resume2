@@ -1,0 +1,20 @@
+name: Renovate
+
+on:
+  schedule:
+    - cron: '30 1 * * *' # Runs daily at 01:30
+  push:
+    branches: [add-renovate]
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Renovate
+        uses: renovatebot/github-action@v41.0.14
+        with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
