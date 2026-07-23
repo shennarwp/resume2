@@ -1,5 +1,7 @@
 name: Trigger auto deployment for resume
 
+permissions: {}
+
 on:
   push:
     branches: ['**']
