@@ -1,10 +1,4 @@
 FROM node:24.18.0-alpine AS builder
-LABEL maintainer="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
-LABEL org.opencontainers.image.authors="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
-LABEL org.opencontainers.image.url="https://github.com/shennarwp/resume2"
-LABEL org.opencontainers.image.title="resume"
-LABEL org.opencontainers.image.description="Shenna RWP's résumé source code, developed further based on this. \
-        Live version can be seen on https://shenna.rwpiri.com"
 
 WORKDIR /app
 COPY package*.json ./
@@ -13,6 +7,13 @@ COPY . .
 RUN npm run build
 
 FROM lipanski/docker-static-website:2.6.0
+LABEL maintainer="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
+LABEL org.opencontainers.image.authors="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
+LABEL org.opencontainers.image.url="https://github.com/shennarwp/resume2"
+LABEL org.opencontainers.image.title="resume"
+LABEL org.opencontainers.image.description="Shenna RWP's résumé source code, developed further based on this. \
+        Live version can be seen on https://shenna.rwpiri.com"
+
 USER static
 WORKDIR /home/static
 # SvelteKit with adapter-static defaults to 'build' folder

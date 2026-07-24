@@ -1,10 +1,4 @@
 FROM node:24.18.0-alpine AS builder
-LABEL maintainer="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
-LABEL org.opencontainers.image.authors="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
-LABEL org.opencontainers.image.url="https://github.com/shennarwp/resume2"
-LABEL org.opencontainers.image.title="resume"
-LABEL org.opencontainers.image.description="Shenna RWP's résumé source code, developed further based on this. \
-        Live version can be seen on https://shenna.rwpiri.com"
 
 WORKDIR /app
 COPY package*.json ./
@@ -13,6 +7,13 @@ COPY . .
 RUN npm run build
 
 FROM nginxinc/nginx-unprivileged:1.31-alpine-perl
+LABEL maintainer="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
+LABEL org.opencontainers.image.authors="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
+LABEL org.opencontainers.image.url="https://github.com/shennarwp/resume2"
+LABEL org.opencontainers.image.title="resume"
+LABEL org.opencontainers.image.description="Shenna RWP's résumé source code, developed further based on this. \
+        Live version can be seen on https://shenna.rwpiri.com"
+
 # SvelteKit with adapter-static outputs to 'build' by default
 COPY --from=builder /app/build /usr/share/nginx/html/
 # Port 80 is the default for nginx
