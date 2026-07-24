@@ -12,8 +12,8 @@ RUN npm ci --ignore-scripts
 COPY . .
 RUN npm run build
 
-FROM nginx:1.31-alpine-slim
+FROM nginxinc/nginx-unprivileged:1.31-alpine-perl
 # SvelteKit with adapter-static outputs to 'build' by default
 COPY --from=builder /app/build /usr/share/nginx/html/
 # Port 80 is the default for nginx
-EXPOSE 80
+EXPOSE 8080
