@@ -172,6 +172,7 @@ jobs:
           containerAppEnvironment: ${{ secrets.AZURE_CONTAINER_APP_ENVIRONMENT }}
           resourceGroup: ${{ secrets.RESOURCE_GROUP }}
           imageToDeploy: ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ env.DEPLOYED_TAG }}
+          targetPort: 8080
 
   deploy-hetzner:
     name: Deploy to hetzner vm
