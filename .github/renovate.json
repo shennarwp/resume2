@@ -7,7 +7,7 @@
     ":rebaseStalePrs",
     ":timezone(Europe/Berlin)",
     "helpers:pinGitHubActionDigests",
-    "npm:unpublishSafe",
+    "security:minimumReleaseAgeNpm",
     ":semanticCommits",
     ":semanticCommitType(fix)",
     ":semanticCommitScope(deps)",
@@ -20,7 +20,7 @@
     ":dependencyDashboard",
     "group:recommended"
   ],
-  "baseBranches": ["main"],
+  "baseBranchPatterns": ["main"],
   "rebaseWhen": "conflicted",
   "addLabels": ["dependencies", "renovate"],
   "rangeStrategy": "bump",
