@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Check URLs
         run: |
-          URLS=("https://shennarwp.com/cv-staging/" "https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/" "https://victorious-moss-02a509500.7.azurestaticapps.net/" "https://shenna.rwpiri.com")
+          URLS=("https://shennarwp.com/cv-staging/" "https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/" "https://victorious-moss-02a509500.7.azurestaticapps.net/" "https://shenna.rwpiri.com" "https://asdasdasd.rwpiri.com")
           FAILED_URLS=()
 
           for url in "${URLS[@]}"; do
