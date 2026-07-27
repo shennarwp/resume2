@@ -1,6 +1,7 @@
 ﻿import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import { codecovSvelteKitPlugin } from '@codecov/sveltekit-plugin';
 
 export default defineConfig({
   plugins: [
@@ -16,6 +17,11 @@ export default defineConfig({
         precompress: false,
         strict: true,
       }),
+    }),
+    codecovSvelteKitPlugin({
+      enableBundleAnalysis: true,
+      bundleName: 'resume',
+      uploadToken: process.env.CODECOV_TOKEN,
     }),
   ],
   build: {
