@@ -41,7 +41,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Run tests
-        run: npm test -- --run
+        run: npx vitest run --coverage
 
   build-and-push:
     name: Build image and push to registries
