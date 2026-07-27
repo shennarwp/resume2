@@ -143,19 +143,33 @@ jobs:
           subject-digest: ${{ steps.build-push-nginx.outputs.digest }}
           push-to-registry: true
 
-      - name: Run Trivy vulnerability scanner
+      - name: Run Trivy vulnerability scanner for nginx image
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 #v0.36.0
         with:
           image-ref: 'ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:nginx-${{ steps.check-tag.outputs.TAG }}'
           format: 'template'
           template: '@/contrib/sarif.tpl'
-          output: 'trivy-results.sarif'
+          output: 'nginx-trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
 
-      - name: Upload Trivy scan results to GitHub Security tab
+      - name: Upload Trivy scan results to GitHub Security tab for nginx image
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: 'nginx-trivy-results.sarif'
+
+      - name: Run Trivy vulnerability scanner for busybox image
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 #v0.36.0
+        with:
+          image-ref: 'ghcr.io/${{ secrets.GHCR_USERNAME }}/resume:busybox-${{ steps.check-tag.outputs.TAG }}'
+          format: 'template'
+          template: '@/contrib/sarif.tpl'
+          output: 'busybox-trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Trivy scan results to GitHub Security tab for busybox image
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'busybox-trivy-results.sarif'
 
   deploy-azure-container-apps:
     name: Deploy to azure container apps
