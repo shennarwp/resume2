@@ -25,7 +25,6 @@ jobs:
 
       - name: Run tests
         run: npx vitest run --coverage
-        #run: npm test -- --run
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
@@ -33,4 +32,6 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Build
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: npm run build
