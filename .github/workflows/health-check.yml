@@ -1,5 +1,7 @@
 name: Health Check
 on:
+  push:
+    branches: ['fix/add-cron-monitoring']
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
