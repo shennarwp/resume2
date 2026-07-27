@@ -11,7 +11,7 @@ LABEL maintainer="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
 LABEL org.opencontainers.image.authors="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
 LABEL org.opencontainers.image.url="https://github.com/shennarwp/resume2"
 LABEL org.opencontainers.image.title="resume"
-LABEL org.opencontainers.image.description="Shenna RWP's résumé source code, developed further based on this. \
+LABEL org.opencontainers.image.description="Shenna RWP's résumé source code. \
         Live version can be seen on https://shenna.rwpiri.com"
 
 USER static
