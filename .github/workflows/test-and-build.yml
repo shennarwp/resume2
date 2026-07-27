@@ -24,7 +24,13 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Run tests
-        run: npm test -- --run
+        run: npx vitest run --coverage
+        #run: npm test -- --run
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Build
         run: npm run build
