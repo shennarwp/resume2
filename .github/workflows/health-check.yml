@@ -1,4 +1,7 @@
 name: Health Check
+
+permissions: {}
+
 on:
   schedule:
     - cron: '0 */6 * * *'
