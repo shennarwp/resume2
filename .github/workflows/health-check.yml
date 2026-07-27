@@ -40,5 +40,5 @@ jobs:
             echo -e "\n**Following URLs are down:** $SUMMARY" >> "$GITHUB_STEP_SUMMARY"
             
             # Send notification
-            curl -d "Following URLs are down: $SUMMARY" ${{ secrets.NTFY_URL }}
+            curl -d "Following URLs are down: $SUMMARY" ${{ secrets.NTFY_URL_PING }}
           fi
