@@ -52,6 +52,7 @@ jobs:
       id-token: write
       contents: read
       attestations: write
+      security-events: write  # required to upload SARIF files to Security tab
     outputs:
       tag: ${{ steps.check-tag.outputs.TAG }}
       is_tag_deploy: ${{ steps.check-tag.outputs.IS_TAG_DEPLOY }}
