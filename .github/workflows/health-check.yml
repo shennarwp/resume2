@@ -1,0 +1,34 @@
+name: Health Check
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check URLs
+        run: |
+          URLS=("https://shennarwp.com/cv-staging/" "https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/" "https://victorious-moss-02a509500.7.azurestaticapps.net/" "https://shenna.rwpiri.com")
+          FAILED_URLS=()
+
+          for url in "${URLS[@]}"; do
+            if ! curl -sf -o /dev/null "$url"; then
+              echo "Failed: $url"
+              FAILED_URLS+=("$url")
+            else
+              echo "Success: $url"
+            fi
+          done
+
+          if [ ${#FAILED_URLS[@]} -eq 0 ]; then
+            echo "All URLs are OK."
+          else
+            SUMMARY=$(printf "%s, " "${FAILED_URLS[@]}")
+            SUMMARY=${SUMMARY%, }
+            echo "Following URLs are down: $SUMMARY"
+            
+            # Send notification
+            curl -d "Following URLs are down: $SUMMARY" ${{ secrets.NTFY_URL_PING }}
+          fi
