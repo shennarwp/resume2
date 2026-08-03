@@ -5,6 +5,9 @@ const config = {
   singleQuote: true,
   trailingComma: 'all',
   printWidth: 100,
+  arrowParens: 'always',
+  endOfLine: 'lf',
+  bracketSpacing: true,
   plugins: ['prettier-plugin-svelte'],
   overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
 };
