@@ -16,13 +16,13 @@ jobs:
           URLS=("https://shennarwp.com/cv-staging/" "https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/" "https://victorious-moss-02a509500.7.azurestaticapps.net/" "https://shenna.rwpiri.com")
           FAILED_URLS=()
           SUCCESS_URLS=()
-          
+
           {
             echo "### Health Check Results"
             echo "| URL | Status |"
             echo "| --- | --- |"
           } >> "$GITHUB_STEP_SUMMARY"
-          
+
           for url in "${URLS[@]}"; do
             if ! curl -sf -o /dev/null "$url"; then
               echo "Failed: $url"
@@ -34,7 +34,7 @@ jobs:
               echo "| $url | ✅ OK |" >> "$GITHUB_STEP_SUMMARY"
             fi
           done
-          
+
           if [ ${#FAILED_URLS[@]} -eq 0 ]; then
             echo -e "\n**All URLs are OK.**" >> "$GITHUB_STEP_SUMMARY"
           else
@@ -42,6 +42,6 @@ jobs:
             SUMMARY=${SUMMARY%, }
             echo -e "\n**Following URLs are down:** $SUMMARY" >> "$GITHUB_STEP_SUMMARY"
             
-            # Send notification
-            curl -d "Following URLs are down: $SUMMARY" ${{ secrets.NTFY_URL_PING }}
+            # Send notification, currently disabled, moved to uptime.rwpiri.com
+            # curl -d "Following URLs are down: $SUMMARY" ${{ secrets.NTFY_URL_PING }}
           fi
