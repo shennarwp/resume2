@@ -32,7 +32,7 @@
     "jsdom": "^29.1.1",
     "prettier": "^3.9.6",
     "prettier-plugin-svelte": "^4.1.1",
-    "svelte": "^5.56.10",
+    "svelte": "^5.57.0",
     "svelte-check": "^4.7.6",
     "terser": "^5.51.2",
     "typescript": "^6.0.3",
