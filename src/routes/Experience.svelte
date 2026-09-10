@@ -1,66 +1,33 @@
 <script lang="ts">
   import { t, json } from 'svelte-i18n';
 
-  const experiences = [
-    {
-      key: 'fourEnergy',
-      period: 'Juli 2026 - jetzt',
-      company: 'FourEnergy GmbH',
-      branch: null,
-    },
-    {
-      key: 'exxeta_2026',
-      period: '2025 - Juni 2026',
-      company: 'Exxeta AG',
-    },
-    {
-      key: 'exxeta_2025',
-      period: '2025',
-      company: 'Exxeta AG',
-    },
-    {
-      key: 'exxeta_2021',
-      period: '2021 - 2024',
-      company: 'Exxeta AG',
-    },
-    {
-      key: 'dillinger',
-      period: 'September 2019 - März 2020',
-      company: 'AG der Dillinger Hüttenwerke',
-    },
-  ];
+  const experiences = ['fourEnergy', 'exxeta_2026', 'exxeta_2025', 'exxeta_2021', 'dillinger'];
 
-  const education = [
-    {
-      key: 'hstw',
-      period: 'Oktober 2016 - September 2020',
-      school: 'Hochschule für Technik und Wirtschaft des Saarlandes',
-    },
-  ];
+  const education = ['hstw'];
 </script>
 
 <section>
   <h1>{$t('experience.title')}</h1>
-  {#each experiences as exp, idx (idx)}
+  {#each experiences as exp, idx (exp)}
     <p>
-      {$t(`experience.${exp.key}.period`)}
+      {$t(`experience.${exp}.period`)}
       <em>
-        {exp.company} | {$t(`experience.${exp.key}.position`)}{$t(
-          `experience.${exp.key}.subtitle`,
+        {$t(`experience.${exp}.company`)} | {$t(`experience.${exp}.position`)}{$t(
+          `experience.${exp}.subtitle`,
           {
             default: '',
           },
         )
-          ? ' | ' + $t(`experience.${exp.key}.subtitle`)
+          ? ' | ' + $t(`experience.${exp}.subtitle`)
           : ''}
       </em>
     </p>
-    {#if $t(`experience.${exp.key}.branch`, { default: '' })}
-      <p>{$t('experience.branch_label')}: {$t(`experience.${exp.key}.branch`)}</p>
+    {#if $t(`experience.${exp}.branch`, { default: '' })}
+      <p>{$t('experience.branch_label')}: {$t(`experience.${exp}.branch`)}</p>
     {/if}
-    {#if ($json(`experience.${exp.key}.items`) as string[]).length > 0}
+    {#if ($json(`experience.${exp}.items`) as string[]).length > 0}
       <ul>
-        {#each $json(`experience.${exp.key}.items`) as string[] as item (item)}
+        {#each $json(`experience.${exp}.items`) as string[] as item (item)}
           <li>{item}</li>
         {/each}
       </ul>
@@ -71,12 +38,12 @@
   {/each}
 
   <h1>{$t('education.title')}</h1>
-  {#each education as edu (edu.key)}
-    <p>{$t(`education.${edu.key}.period`)} <em> {edu.school}</em></p>
-    <p>{$t(`education.${edu.key}.degree`)}</p>
-    <p>{$t(`education.${edu.key}.description`)}</p>
+  {#each education as edu (edu)}
+    <p>{$t(`education.${edu}.period`)} <em> {$t(`education.${edu}.school`)}</em></p>
+    <p>{$t(`education.${edu}.degree`)}</p>
+    <p>{$t(`education.${edu}.description`)}</p>
     <ul>
-      {#each $json(`education.${edu.key}.items`) as string[] as item (item)}
+      {#each $json(`education.${edu}.items`) as string[] as item (item)}
         <li>{item}</li>
       {/each}
     </ul>

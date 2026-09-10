@@ -75,7 +75,26 @@
     }
   },
   "skills": {
-    "title": "Tools & Skills"
+    "title": "Tools & Skills",
+    "items": {
+      "java": "Java",
+      "kotlin": "Kotlin",
+      "spring_boot": "Spring Boot",
+      "angular": "Angular",
+      "vue": "Vue",
+      "bash": "Bash",
+      "hibernate": "Hibernate",
+      "kafka": "Kafka",
+      "sql": "SQL",
+      "cicd": "GitHub / GitLab Pipeline",
+      "azure": "Azure",
+      "jenkins": "Jenkins",
+      "intellij": "IntelliJ",
+      "elastic_stack": "Elastic-Stack",
+      "docker": "Docker",
+      "kubernetes": "Kubernetes",
+      "web": "HTML / CSS / Java- / Typescript"
+    }
   },
   "interests": {
     "title": "Personal Interests",
