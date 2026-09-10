@@ -60,12 +60,10 @@
   .left {
     background-color: var(--left-sidebar-bg);
     border-right: var(--left-sidebar-border);
-    float: right;
-    height: 100%;
-    margin-left: -1px;
     min-width: 150px;
-    position: fixed;
-    width: 35%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
   }
 
   .name-hero {
@@ -140,12 +138,11 @@
   @media (max-width: 768px) {
     .left {
       position: relative;
+      height: auto;
       width: 100%;
-      float: none;
       border-right: none;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       min-width: auto;
-      margin-left: 0;
     }
 
     .name-hero {
@@ -172,12 +169,6 @@
       top: 1rem;
       right: 1rem;
       z-index: 10;
-    }
-
-    /* ensure main content stacks below */
-    :global(.right) {
-      float: none;
-      width: 100%;
     }
   }
 </style>

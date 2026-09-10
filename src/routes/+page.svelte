@@ -37,7 +37,7 @@
   </script>
 </svelte:head>
 
-<div class="text-column">
+<div class="resume-grid">
   <LeftSidebar />
   <MainContent />
 </div>

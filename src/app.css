@@ -109,13 +109,14 @@ button:focus-visible {
   }
 }
 
+.resume-grid {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+}
+
 @media screen and (width <= 48em) {
-  .right,
-  .left {
-    float: none;
-    position: relative !important;
-    width: 100%;
-    min-height: 250px;
+  .resume-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -207,11 +208,13 @@ button:focus-visible {
 
   .left,
   .right {
-    float: none !important;
     position: static !important;
-    width: 100% !important;
     height: auto !important;
     border: none !important;
+  }
+
+  .resume-grid {
+    display: block !important;
   }
 
   .name-hero {
