@@ -5,14 +5,23 @@ export const prerender = true;
 export const trailingSlash = 'always';
 
 export const load: LayoutLoad = async ({ url }) => {
+  const supportedLocales = ['en', 'de', 'id'];
   let initialLocale = 'en';
 
-  if (typeof navigator !== 'undefined' && navigator.language) {
-    const browserLang = navigator.language.split('-')[0]; // e.g., "en-US" -> "en"
-    if (browserLang === 'de') {
-      initialLocale = 'de';
-    } else if (browserLang === 'id') {
-      initialLocale = 'id';
+  if (typeof localStorage !== 'undefined') {
+    const saved = localStorage.getItem('locale');
+    if (saved && supportedLocales.includes(saved)) {
+      initialLocale = saved;
+    } else if (typeof navigator !== 'undefined' && navigator.language) {
+      const browserLang = navigator.language.split('-')[0];
+      if (supportedLocales.includes(browserLang)) {
+        initialLocale = browserLang;
+      }
+    }
+  } else if (typeof navigator !== 'undefined' && navigator.language) {
+    const browserLang = navigator.language.split('-')[0];
+    if (supportedLocales.includes(browserLang)) {
+      initialLocale = browserLang;
     }
   }
 

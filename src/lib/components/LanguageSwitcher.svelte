@@ -3,6 +3,9 @@
 
   function setLocale(newLocale: string) {
     locale.set(newLocale);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('locale', newLocale);
+    }
   }
 </script>
 
