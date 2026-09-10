@@ -8,7 +8,7 @@
   <meta name="description" content="Shenna RWP's résumé" />
 </svelte:head>
 
-<div class="text-column">
+<div class="resume-grid">
   <LeftSidebar />
   <MainContent />
 </div>

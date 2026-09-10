@@ -18,10 +18,7 @@
 
 <style>
   .right {
-    float: right;
-    height: 100%;
-    position: relative;
-    width: 65%;
+    min-width: 0;
   }
 
   .inner {
@@ -61,11 +58,6 @@
 
   /* Mobile: stack main content under the sidebar */
   @media (max-width: 768px) {
-    .right {
-      float: none;
-      width: 100%;
-    }
-
     .inner {
       padding: 2em;
     }
