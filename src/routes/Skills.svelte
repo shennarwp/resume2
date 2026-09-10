@@ -1,32 +1,32 @@
 <script>
   import { t } from 'svelte-i18n';
 
-  const skills = [
-    'Java',
-    'Kotlin',
-    'Spring Boot',
-    'Angular',
-    'Vue',
-    'Bash',
-    'Hibernate',
-    'Kafka',
-    'SQL',
-    'GitHub / GitLab Pipeline',
-    'Azure',
-    'Jenkins',
-    'IntelliJ',
-    'Elastic-Stack',
-    'Docker',
-    'Kubernetes',
-    'HTML / CSS / Java- / Typescript',
+  const skillKeys = [
+    'java',
+    'kotlin',
+    'spring_boot',
+    'angular',
+    'vue',
+    'bash',
+    'hibernate',
+    'kafka',
+    'sql',
+    'cicd',
+    'azure',
+    'jenkins',
+    'intellij',
+    'elastic_stack',
+    'docker',
+    'kubernetes',
+    'web',
   ];
 </script>
 
 <section>
   <h1>{$t('skills.title')}</h1>
   <ul class="skill-set">
-    {#each skills as skill (skill)}
-      <li>{skill}</li>
+    {#each skillKeys as key (key)}
+      <li>{$t(`skills.items.${key}`)}</li>
     {/each}
   </ul>
 </section>
