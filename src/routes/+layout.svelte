@@ -16,7 +16,8 @@
 </svelte:head>
 
 <div class="app">
-  <main>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content">
     {@render children()}
   </main>
 </div>

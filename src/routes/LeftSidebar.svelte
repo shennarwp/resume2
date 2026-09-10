@@ -24,16 +24,31 @@
         <a href="mailto:shenna@rwpiri.com" class="link-text-color"> shenna@rwpiri.com </a>&ensp;
       </p>
       <p>
-        <a href="tel:+49 1525 7523364" class="link-text-color"> +49 1525 7523364 </a>&ensp;
+        <a href="tel:+4915257523364" class="link-text-color"> +49 1525 7523364 </a>&ensp;
       </p>
       <div class="icon-center">
-        <a href="https://github.com/shennarwp/" target="_blank" title="github link">
+        <a
+          href="https://github.com/shennarwp/"
+          target="_blank"
+          title="github link"
+          aria-label="GitHub profile"
+        >
           <img src={githubIcon} alt="github" class="link-icon" />
         </a>&ensp;
-        <a href="https://www.linkedin.com/in/shennarwp/" target="_blank" title="linkedin link">
+        <a
+          href="https://www.linkedin.com/in/shennarwp/"
+          target="_blank"
+          title="linkedin link"
+          aria-label="LinkedIn profile"
+        >
           <img src={linkedinIcon} alt="linkedin" class="link-icon" />
         </a>&ensp;
-        <a href="https://instagram.com/shennarwp/" target="_blank" title="instagram link">
+        <a
+          href="https://instagram.com/shennarwp/"
+          target="_blank"
+          title="instagram link"
+          aria-label="Instagram profile"
+        >
           <img src={instagramIcon} alt="instagram" class="link-icon" />
         </a>&ensp;
       </div>
