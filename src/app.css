@@ -72,6 +72,22 @@ button:focus-visible {
   height: 100%;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 0.5em 1em;
+  z-index: 100;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 .clearfix::after {
   content: ' ';
   visibility: hidden;
@@ -115,10 +131,10 @@ button:focus-visible {
     --left-sidebar-bg: rgb(0 0 0 / 2.5%);
     --left-sidebar-border: 1px solid rgb(0 0 0 / 5%);
     --name-hero-bg: rgb(0 0 0 / 0.1%);
-    --name-hero-em-color: rgb(0 0 0 / 30%);
-    --name-hero-p-color: rgb(0 0 0 / 75%);
-    --link-text-color: rgb(0 0 0 / 75%);
-    --inner-p-color: rgb(0 0 0 / 50%);
+    --name-hero-em-color: rgb(0 0 0 / 60%);
+    --name-hero-p-color: rgb(0 0 0 / 87%);
+    --link-text-color: rgb(0 0 0 / 87%);
+    --inner-p-color: rgb(0 0 0 / 75%);
     --inner-p-em-color: rgb(0 0 0 / 100%);
     --skill-set-bg: rgb(0 0 0 / 75%);
     --skill-set-color: #fff;
@@ -150,10 +166,10 @@ button:focus-visible {
     --left-sidebar-bg: rgb(255 255 255 / 2.5%); /* Left sidebar background */
     --left-sidebar-border: 1px solid rgb(255 255 255 / 5%);
     --name-hero-bg: rgb(255 255 255 / 0.1%);
-    --name-hero-em-color: rgb(255 255 255 / 30%);
-    --name-hero-p-color: rgb(255 255 255 / 75%);
-    --link-text-color: rgb(255 255 255 / 75%);
-    --inner-p-color: rgb(255 255 255 / 50%);
+    --name-hero-em-color: rgb(255 255 255 / 60%);
+    --name-hero-p-color: rgb(255 255 255 / 87%);
+    --link-text-color: rgb(255 255 255 / 87%);
+    --inner-p-color: rgb(255 255 255 / 75%);
     --inner-p-em-color: rgb(255 255 255 / 100%);
     --inner-li-color: rgb(255 255 255 / 100%);
     --skill-set-bg: rgb(255 255 255 / 75%);
