@@ -11,9 +11,10 @@ describe('LeftSidebar', () => {
 
   it('renders the profile image', () => {
     const { container } = render(LeftSidebar);
-    const imgDiv = container.querySelector('.me-img') as HTMLElement;
-    expect(imgDiv).toBeInTheDocument();
-    expect(imgDiv.style.backgroundImage).toContain('shenna.avif');
+    const img = container.querySelector('.me-img') as HTMLImageElement;
+    expect(img).toBeInTheDocument();
+    expect(img.getAttribute('src')).toContain('shenna.avif');
+    expect(img.getAttribute('alt')).toContain('Portrait of Shenna');
   });
 
   it('has social links opening in new tab', () => {

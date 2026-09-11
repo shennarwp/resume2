@@ -221,7 +221,7 @@ button:focus-visible {
     position: static !important;
     height: auto !important;
     width: 100% !important;
-    padding: 1em 0;
+    padding: 1em 2em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -232,8 +232,6 @@ button:focus-visible {
   .me-img {
     height: 100px !important;
     width: 100px !important;
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
   }
 
   .name-text {
@@ -245,14 +243,34 @@ button:focus-visible {
   }
 
   .inner {
-    padding: 1em 0 !important;
+    padding: 1em 2em !important;
     max-width: 100% !important;
   }
 
   .language-switcher-desktop,
-  .language-switcher-mobile,
-  .icon-center {
+  .language-switcher-mobile {
     display: none !important;
+  }
+
+  .icon-center {
+    display: block !important;
+    text-align: center;
+  }
+
+  .icon-center a {
+    color: black !important;
+    display: block;
+    font-size: 0.85em;
+    line-height: 1.5;
+  }
+
+  .icon-center img {
+    display: none !important;
+  }
+
+  .icon-center a::after {
+    content: ' (' attr(href) ')';
+    word-break: break-all;
   }
 
   .link-text-color,
