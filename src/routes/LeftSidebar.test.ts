@@ -28,6 +28,17 @@ describe('LeftSidebar', () => {
     expect(instagramLink).toHaveAttribute('target', '_blank');
   });
 
+  it('exposes cleaned print URLs via data-print-href', () => {
+    render(LeftSidebar);
+    const githubLink = screen.getByTitle('github link');
+    const linkedinLink = screen.getByTitle('linkedin link');
+    const instagramLink = screen.getByTitle('instagram link');
+
+    expect(githubLink).toHaveAttribute('data-print-href', 'github.com/shennarwp');
+    expect(linkedinLink).toHaveAttribute('data-print-href', 'linkedin.com/in/shennarwp');
+    expect(instagramLink).toHaveAttribute('data-print-href', 'instagram.com/shennarwp');
+  });
+
   it('renders social media SVG icons', () => {
     const { container } = render(LeftSidebar);
     const githubImg = container.querySelector('a[title="github link"] img');
