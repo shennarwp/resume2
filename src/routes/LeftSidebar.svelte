@@ -11,7 +11,7 @@
     <div class="language-switcher-mobile">
       <LanguageSwitcher />
     </div>
-    <div class="me-img" style="background-image: url({shennaImg})"></div>
+    <img src={shennaImg} alt="Portrait of Shenna Piri" class="me-img" />
     <div class="name-text">
       <h1>Shenna Risqianto Wilfred <em>Piri</em></h1>
       <p>Saarbrücken</p>
@@ -76,17 +76,15 @@
   }
 
   .me-img {
-    background-size: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-radius: 100%;
-    height: 150px;
-    margin: 0 auto;
-    position: relative;
-    width: 150px;
     border-color: var(--me-img-border);
+    border-radius: 100%;
     border-style: solid;
     border-width: medium;
+    display: block;
+    height: 150px;
+    margin: 0 auto;
+    object-fit: cover;
+    width: 150px;
   }
 
   .name-hero h1 {
