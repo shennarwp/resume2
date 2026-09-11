@@ -123,6 +123,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5em;
+    margin-top: 0.75em;
   }
 
   .language-switcher-mobile {
