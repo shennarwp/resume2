@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import shennaImg from '$lib/assets/shenna.avif';
   import githubIcon from '$lib/assets/github.svg';
   import linkedinIcon from '$lib/assets/linkedin.svg';
@@ -24,9 +24,9 @@
       href: 'https://instagram.com/shennarwp/',
       icon: instagramIcon,
     },
-  ];
+  ] as const;
 
-  function stripUrl(url) {
+  function stripUrl(url: string) {
     return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
   }
 </script>
@@ -52,7 +52,8 @@
         <a href="tel:+4915257523364" class="link-text-color"> +49 1525 7523364 </a>&ensp;
       </p>
       <div class="icon-center">
-        {#each socialLinks as link}
+        {#each socialLinks as link (link.name)}
+          <!-- eslint-disable svelte/no-navigation-without-resolve -- Social links are absolute external URLs. -->
           <a
             href={link.href}
             target="_blank"
@@ -60,8 +61,9 @@
             aria-label={link.label}
             data-print-href={stripUrl(link.href)}
             ><img src={link.icon} alt={link.name} class="link-icon" /></a
-          ><!--
-        -->{/each}
+          >
+          <!-- eslint-enable svelte/no-navigation-without-resolve -->
+        {/each}
       </div>
     </div>
   </div>

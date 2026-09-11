@@ -27,6 +27,8 @@ jobs:
 
   test:
     name: Run frontend tests
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout to the branch
@@ -35,13 +37,26 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
-          node-version: 24.21.0
+          node-version-file: .nvmrc
+          cache: npm
 
       - name: Install dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
 
+      - name: Type check
+        run: npm run check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test deployment recovery
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+
       - name: Run tests
         run: npm run test:coverage
+
+      - name: Build
+        run: npm run build
 
   build-and-push:
     name: Build image and push to registries
@@ -199,6 +214,9 @@ jobs:
 
   deploy-azure-container-apps:
     name: Deploy to azure container apps
+    concurrency:
+      group: deploy-azure-container-apps
+      cancel-in-progress: false
     environment:
       name: azure
       url: https://resume.graysand-8af4e4eb.germanywestcentral.azurecontainerapps.io/
@@ -231,6 +249,11 @@ jobs:
 
   deploy-hetzner:
     name: Deploy to hetzner vm
+    permissions:
+      contents: read
+    concurrency:
+      group: deploy-hetzner
+      cancel-in-progress: false
     environment:
       name: hetzner
       url: https://shennarwp.com/cv-staging/
@@ -238,8 +261,14 @@ jobs:
     needs: [build-and-push]
     env:
       DEPLOYED_TAG: ${{ needs.build-and-push.outputs.tag }}
+      DEPLOY_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ needs.build-and-push.outputs.tag }}
+      HEALTH_URL: https://shennarwp.com/cv-staging/
 
     steps:
+      - name: Checkout deployment script
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       - name: Deploy to hetzner
         uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1
         with:
@@ -247,21 +276,16 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: |
-            docker stop resume || true \
-            && docker rm resume || true \
-            && docker run \
-                 --detach \
-                 --net nginx \
-                 --name resume \
-                 --restart always \
-                 --expose 80 \
-                 ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ env.DEPLOYED_TAG }} \
-            && docker container restart nginx \
-            && docker image prune --force
+          envs: DEPLOY_IMAGE,HEALTH_URL
+          script_path: scripts/deploy-vm.sh
 
   deploy-oracle:
     name: Deploy to oracle vm
+    permissions:
+      contents: read
+    concurrency:
+      group: deploy-oracle
+      cancel-in-progress: false
     environment:
       name: oracle
       url: https://shenna.rwpiri.com
@@ -269,10 +293,16 @@ jobs:
     needs: [build-and-push]
     env:
       DEPLOYED_TAG: ${{ needs.build-and-push.outputs.tag }}
+      DEPLOY_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ needs.build-and-push.outputs.tag }}
+      HEALTH_URL: https://shenna.rwpiri.com
     # Only run on tag pushes matching YYYY.MM.DD-freetext
     if: github.event_name == 'push' && github.ref_type == 'tag' && needs.build-and-push.outputs.is_tag_deploy == 'true'
 
     steps:
+      - name: Checkout deployment script
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       - name: Deploy to oracle
         uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1
         with:
@@ -280,21 +310,16 @@ jobs:
           username: ${{ secrets.RUIPRYUX_USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.RUIPRYUX_PORT }}
-          script: |
-            docker stop resume || true \
-            && docker rm resume || true \
-            && docker run \
-                 --detach \
-                 --net nginx \
-                 --name resume \
-                 --restart always \
-                 --expose 80 \
-                 ${{ secrets.DOCKERHUB_USERNAME }}/resume:busybox-${{ env.DEPLOYED_TAG }} \
-            && docker container restart nginx \
-            && docker image prune --force
+          envs: DEPLOY_IMAGE,HEALTH_URL
+          script_path: scripts/deploy-vm.sh
 
   deploy-azure-static-web:
     name: Deploy to azure static web
+    permissions:
+      contents: read
+    concurrency:
+      group: deploy-azure-static-web
+      cancel-in-progress: false
     environment:
       name: azure
       url: https://victorious-moss-02a509500.7.azurestaticapps.net/
@@ -308,6 +333,15 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Build
+        run: npm run build
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
@@ -315,9 +349,10 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_VICTORIOUS_MOSS_02A509500 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: 'upload'
-          app_location: '/' # App source code path
+          app_location: 'build'
+          skip_app_build: true
           api_location: '' # Api source code path - optional
-          output_location: 'build' # Built app content directory - optional
+          output_location: ''
 
   healthcheck-staging:
     name: Check staging url after deployment
