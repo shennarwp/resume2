@@ -27,7 +27,7 @@
   ];
 
   function stripUrl(url) {
-    return url.replace(/^https?:\/\//, '').replace(/\/+$/, '');
+    return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
   }
 </script>
 
