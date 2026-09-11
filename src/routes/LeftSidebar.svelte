@@ -4,6 +4,31 @@
   import linkedinIcon from '$lib/assets/linkedin.svg';
   import instagramIcon from '$lib/assets/instagram.svg';
   import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
+
+  const socialLinks = [
+    {
+      name: 'github',
+      label: 'GitHub profile',
+      href: 'https://github.com/shennarwp/',
+      icon: githubIcon,
+    },
+    {
+      name: 'linkedin',
+      label: 'LinkedIn profile',
+      href: 'https://www.linkedin.com/in/shennarwp/',
+      icon: linkedinIcon,
+    },
+    {
+      name: 'instagram',
+      label: 'Instagram profile',
+      href: 'https://instagram.com/shennarwp/',
+      icon: instagramIcon,
+    },
+  ];
+
+  function stripUrl(url) {
+    return url.replace(/^https?:\/\//, '').replace(/\/+$/, '');
+  }
 </script>
 
 <div class="left">
@@ -27,26 +52,16 @@
         <a href="tel:+4915257523364" class="link-text-color"> +49 1525 7523364 </a>&ensp;
       </p>
       <div class="icon-center">
-        <a
-          href="https://github.com/shennarwp/"
-          target="_blank"
-          title="github link"
-          aria-label="GitHub profile"><img src={githubIcon} alt="github" class="link-icon" /></a
-        ><!--
-        --><a
-          href="https://www.linkedin.com/in/shennarwp/"
-          target="_blank"
-          title="linkedin link"
-          aria-label="LinkedIn profile"
-          ><img src={linkedinIcon} alt="linkedin" class="link-icon" /></a
-        ><!--
-        --><a
-          href="https://instagram.com/shennarwp/"
-          target="_blank"
-          title="instagram link"
-          aria-label="Instagram profile"
-          ><img src={instagramIcon} alt="instagram" class="link-icon" /></a
-        >
+        {#each socialLinks as link}
+          <a
+            href={link.href}
+            target="_blank"
+            title="{link.name} link"
+            aria-label={link.label}
+            data-print-href={stripUrl(link.href)}
+            ><img src={link.icon} alt={link.name} class="link-icon" /></a
+          ><!--
+        -->{/each}
       </div>
     </div>
   </div>
