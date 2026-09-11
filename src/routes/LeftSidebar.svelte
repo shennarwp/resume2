@@ -31,26 +31,22 @@
           href="https://github.com/shennarwp/"
           target="_blank"
           title="github link"
-          aria-label="GitHub profile"
-        >
-          <img src={githubIcon} alt="github" class="link-icon" />
-        </a>&ensp;
-        <a
+          aria-label="GitHub profile"><img src={githubIcon} alt="github" class="link-icon" /></a
+        ><!--
+        --><a
           href="https://www.linkedin.com/in/shennarwp/"
           target="_blank"
           title="linkedin link"
           aria-label="LinkedIn profile"
-        >
-          <img src={linkedinIcon} alt="linkedin" class="link-icon" />
-        </a>&ensp;
-        <a
+          ><img src={linkedinIcon} alt="linkedin" class="link-icon" /></a
+        ><!--
+        --><a
           href="https://instagram.com/shennarwp/"
           target="_blank"
           title="instagram link"
           aria-label="Instagram profile"
+          ><img src={instagramIcon} alt="instagram" class="link-icon" /></a
         >
-          <img src={instagramIcon} alt="instagram" class="link-icon" />
-        </a>&ensp;
       </div>
     </div>
   </div>
@@ -126,6 +122,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5em;
   }
 
   .language-switcher-mobile {
