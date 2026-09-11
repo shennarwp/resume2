@@ -270,7 +270,7 @@ button:focus-visible {
   }
 
   .icon-center a::after {
-    content: attr(href);
+    content: attr(data-print-href);
     word-break: break-all;
   }
 
