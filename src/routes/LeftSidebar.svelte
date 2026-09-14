@@ -4,27 +4,13 @@
   import linkedinIcon from '$lib/assets/linkedin.svg';
   import instagramIcon from '$lib/assets/instagram.svg';
   import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
+  import { profile, type SocialName } from '$lib/profile';
 
-  const socialLinks = [
-    {
-      name: 'github',
-      label: 'GitHub profile',
-      href: 'https://github.com/shennarwp/',
-      icon: githubIcon,
-    },
-    {
-      name: 'linkedin',
-      label: 'LinkedIn profile',
-      href: 'https://www.linkedin.com/in/shennarwp/',
-      icon: linkedinIcon,
-    },
-    {
-      name: 'instagram',
-      label: 'Instagram profile',
-      href: 'https://instagram.com/shennarwp/',
-      icon: instagramIcon,
-    },
-  ] as const;
+  const icons: Record<SocialName, string> = {
+    github: githubIcon,
+    linkedin: linkedinIcon,
+    instagram: instagramIcon,
+  };
 
   function stripUrl(url: string) {
     return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
@@ -38,21 +24,23 @@
     </div>
     <img src={shennaImg} alt="Portrait of Shenna Piri" class="me-img" />
     <div class="name-text">
-      <h1>Shenna Risqianto Wilfred <em>Piri</em></h1>
-      <p>Saarbrücken</p>
+      <h1>{profile.givenName} <em>{profile.familyName}</em></h1>
+      <p>{profile.location}</p>
       <p>
-        <a href="https://shenna.rwpiri.com" target="_blank" class="link-text-color">
-          shenna.rwpiri.com
+        <!-- eslint-disable svelte/no-navigation-without-resolve -- Profile URLs are absolute external URLs. -->
+        <a href={profile.website} target="_blank" class="link-text-color">
+          {profile.website.replace(/^https?:\/\//, '')}
         </a>&ensp;
       </p>
       <p>
-        <a href="mailto:shenna@rwpiri.com" class="link-text-color"> shenna@rwpiri.com </a>&ensp;
+        <a href="mailto:{profile.email}" class="link-text-color"> {profile.email} </a>&ensp;
       </p>
       <p>
-        <a href="tel:+4915257523364" class="link-text-color"> +49 1525 7523364 </a>&ensp;
+        <a href={profile.phoneHref} class="link-text-color"> {profile.phoneDisplay} </a>&ensp;
+        <!-- eslint-enable svelte/no-navigation-without-resolve -->
       </p>
       <div class="icon-center">
-        {#each socialLinks as link (link.name)}
+        {#each profile.socialLinks as link (link.name)}
           <!-- eslint-disable svelte/no-navigation-without-resolve -- Social links are absolute external URLs. -->
           <a
             href={link.href}
@@ -60,7 +48,7 @@
             title="{link.name} link"
             aria-label={link.label}
             data-print-href={stripUrl(link.href)}
-            ><img src={link.icon} alt={link.name} class="link-icon" /></a
+            ><img src={icons[link.name]} alt={link.name} class="link-icon" /></a
           >
           <!-- eslint-enable svelte/no-navigation-without-resolve -->
         {/each}

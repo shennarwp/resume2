@@ -1,4 +1,3 @@
-version: '3'
 services:
   resume:
     image: ghcr.io/shennarwp/resume:nginx-latest

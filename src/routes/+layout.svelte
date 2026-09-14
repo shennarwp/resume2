@@ -1,7 +1,14 @@
 <script lang="ts">
   import favicon from '$lib/assets/favicon.png';
   import '../app.css';
+  import { locale } from 'svelte-i18n';
+  import { syncDocumentLang } from '$lib/document-lang';
   let { children, data } = $props(); // Destructure data from $props()
+
+  // Keep <html lang> in sync with the active locale for a11y/SEO.
+  $effect(() => {
+    syncDocumentLang($locale);
+  });
 </script>
 
 <svelte:head>
