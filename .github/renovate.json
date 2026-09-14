@@ -132,6 +132,12 @@
       "matchDepNames": ["typescript"],
       "matchUpdateTypes": ["major"],
       "groupName": "typescript major"
+    },
+    {
+      "description": "Ignore updates to the engines.node constraint (node version is managed by .nvmrc and the Dockerfile)",
+      "matchDepTypes": ["engines"],
+      "matchDepNames": ["node"],
+      "enabled": false
     }
   ],
   "platform": "github",
