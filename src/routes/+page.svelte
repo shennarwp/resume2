@@ -1,40 +1,22 @@
-<script>
+<script lang="ts">
   import LeftSidebar from './LeftSidebar.svelte';
   import MainContent from './MainContent.svelte';
+  import { profile, renderPersonJsonLd } from '$lib/profile';
 </script>
 
 <svelte:head>
-  <title>Shenna RWP's résumé</title>
-  <meta name="description" content="Shenna RWP's résumé" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Shenna Risqianto Wilfred Piri",
-      "url": "https://shenna.rwpiri.com",
-      "email": "shenna@rwpiri.com",
-      "telephone": "+4915257523364",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Saarbrücken",
-        "addressCountry": "DE"
-      },
-      "jobTitle": "Senior IT-Consultant",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "FourEnergy GmbH"
-      },
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "Hochschule für Technik und Wirtschaft des Saarlandes"
-      },
-      "sameAs": [
-        "https://github.com/shennarwp/",
-        "https://www.linkedin.com/in/shennarwp/",
-        "https://instagram.com/shennarwp/"
-      ]
-    }
-  </script>
+  <title>{profile.siteTitle}</title>
+  <meta name="description" content={profile.headline} />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content={profile.siteTitle} />
+  <meta property="og:description" content={profile.headline} />
+  <meta property="og:url" content={profile.website} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={profile.siteTitle} />
+  <meta name="twitter:description" content={profile.headline} />
+  <!-- eslint-disable svelte/no-at-html-tags -- renderPersonJsonLd() serializes static first-party profile data; no user input involved. -->
+  {@html renderPersonJsonLd()}
+  <!-- eslint-enable svelte/no-at-html-tags -->
 </svelte:head>
 
 <div class="resume-grid">
