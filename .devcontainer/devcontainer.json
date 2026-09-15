@@ -4,7 +4,9 @@
   // Azure CLI (CI deploys to Azure Container Apps; handy locally too) and
   // GitHub CLI are added as features so the Debian host itself stays clean
   // (no global Node/npm packages).
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:24-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   // The node image only ships user `node`, so pin it explicitly and mount
   // ~/.ssh onto its home (there is no `vscode` user in this image).
   "remoteUser": "node",
@@ -28,7 +30,11 @@
     "type=bind,source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,readonly",
     // Same idea for GitHub CLI: host ~/.config/gh (hosts.yml token) is
     // visible read-only so `gh` works without a second login.
-    "type=bind,source=${localEnv:HOME}/.config/gh,target=/home/node/.config/gh,readonly"
+    "type=bind,source=${localEnv:HOME}/.config/gh,target=/home/node/.config/gh,readonly",
+    // OpenCode auth only (tokens stay on the host; sessions stay per-side).
+    // Requires ~/.local/share/opencode/auth.json to exist on the host
+    // (it does after `opencode auth login`), otherwise creation fails.
+    "type=bind,source=${localEnv:HOME}/.local/share/opencode/auth.json,target=/home/node/.local/share/opencode/auth.json,readonly"
   ],
   "postCreateCommand": "npm ci",
   "customizations": {
