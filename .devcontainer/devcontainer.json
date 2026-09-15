@@ -5,9 +5,9 @@
   // GitHub CLI are added as features so the Debian host itself stays clean
   // (no global Node/npm packages).
   "image": "mcr.microsoft.com/devcontainers/javascript-node:24-bookworm",
-  // The node image defaults to user `node`; pin `vscode` so the ~/.ssh
-  // mount below (and file ownership) lands on a consistent home.
-  "remoteUser": "vscode",
+  // The node image only ships user `node`, so pin it explicitly and mount
+  // ~/.ssh onto its home (there is no `vscode` user in this image).
+  "remoteUser": "node",
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
     "ghcr.io/devcontainers/features/azure-cli:1": {},
@@ -24,7 +24,7 @@
   // read-only so git-over-SSH and the IDE's git integration work there.
   // Nothing is copied: same files, container-local reads. Requires the host
   // uid to match the container user (both 1000 on a default Debian install).
-  "mounts": ["type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"],
+  "mounts": ["type=bind,source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,readonly"],
   "postCreateCommand": "npm ci",
   "customizations": {
     "vscode": {
