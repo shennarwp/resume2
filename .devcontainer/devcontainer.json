@@ -1,0 +1,39 @@
+{
+  "name": "resume2",
+  // Node 24 (.nvmrc pins 24.21.0) via the base image; Docker (host socket),
+  // Azure CLI (CI deploys to Azure Container Apps; handy locally too) and
+  // GitHub CLI are added as features so the Debian host itself stays clean
+  // (no global Node/npm packages).
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "SvelteKit dev server",
+      "onAutoForward": "openPreview"
+    }
+  },
+  // Host ~/.ssh (keys, config, known_hosts) is visible inside the container
+  // read-only so git-over-SSH and the IDE's git integration work there.
+  // Nothing is copied: same files, container-local reads. Requires the host
+  // uid to match the container user (both 1000 on a default Debian install).
+  "mounts": [
+    "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
+  ],
+  "postCreateCommand": "npm ci",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "svelte.svelte-vscode",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "vitest.explorer"
+      ]
+    }
+  },
+  "shutdownAction": "none"
+}
