@@ -25,8 +25,15 @@ describe('LanguageSwitcher', () => {
   it('calls setLocale when a button is clicked', async () => {
     render(LanguageSwitcher);
     const deButton = screen.getByText('de');
+    const enButton = screen.getByText('en');
+    const idButton = screen.getByText('id');
 
     await fireEvent.click(deButton);
+    await fireEvent.click(enButton);
+    await fireEvent.click(idButton);
     expect(mockLocale.set).toHaveBeenCalledWith('de');
+    expect(mockLocale.set).toHaveBeenCalledWith('en');
+    expect(mockLocale.set).toHaveBeenCalledWith('id');
+    expect(localStorage.getItem('locale')).toBe('id');
   });
 });
