@@ -44,4 +44,5 @@ jobs:
             
             # Send notification, currently disabled, moved to uptime.rwpiri.com
             # curl -d "Following URLs are down: $SUMMARY" ${{ secrets.NTFY_URL_PING }}
+            exit 1
           fi

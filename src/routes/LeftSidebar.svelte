@@ -28,7 +28,7 @@
       <p>{profile.location}</p>
       <p>
         <!-- eslint-disable svelte/no-navigation-without-resolve -- Profile URLs are absolute external URLs. -->
-        <a href={profile.website} target="_blank" class="link-text-color">
+        <a href={profile.website} target="_blank" rel="noopener noreferrer" class="link-text-color">
           {profile.website.replace(/^https?:\/\//, '')}
         </a>&ensp;
       </p>
@@ -45,6 +45,7 @@
           <a
             href={link.href}
             target="_blank"
+            rel="noopener noreferrer"
             title="{link.name} link"
             aria-label={link.label}
             data-print-href={stripUrl(link.href)}
