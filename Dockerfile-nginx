@@ -18,3 +18,4 @@ LABEL org.opencontainers.image.description="Shenna RWP's résumé source code. \
 COPY --from=builder /app/build /usr/share/nginx/html/
 # Port 80 is the default for nginx
 EXPOSE 8080
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD wget --spider --quiet http://127.0.0.1:8080/ || exit 1

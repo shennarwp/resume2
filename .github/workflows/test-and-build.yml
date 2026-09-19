@@ -51,3 +51,12 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: npm run build
+
+      - name: Verify GitHub Pages subpath artifact
+        run: python3 -m unittest tests.test_pages_subpath
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run browser and accessibility tests
+        run: npm run test:e2e

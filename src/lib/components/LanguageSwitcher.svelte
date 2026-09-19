@@ -10,9 +10,24 @@
 </script>
 
 <div class="language-switcher">
-  <button onclick={() => setLocale('de')} class:active={$locale === 'de'}><b>de</b></button>
-  <button onclick={() => setLocale('en')} class:active={$locale === 'en'}><b>en</b></button>
-  <button onclick={() => setLocale('id')} class:active={$locale === 'id'}><b>id</b></button>
+  <button
+    aria-label="Deutsch"
+    aria-pressed={$locale === 'de'}
+    onclick={() => setLocale('de')}
+    class:active={$locale === 'de'}><b>de</b></button
+  >
+  <button
+    aria-label="English"
+    aria-pressed={$locale === 'en'}
+    onclick={() => setLocale('en')}
+    class:active={$locale === 'en'}><b>en</b></button
+  >
+  <button
+    aria-label="Bahasa Indonesia"
+    aria-pressed={$locale === 'id'}
+    onclick={() => setLocale('id')}
+    class:active={$locale === 'id'}><b>id</b></button
+  >
 </div>
 
 <style>
