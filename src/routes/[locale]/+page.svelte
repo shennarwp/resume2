@@ -1,9 +1,10 @@
 <script lang="ts">
-  import LeftSidebar from './LeftSidebar.svelte';
-  import MainContent from './MainContent.svelte';
+  import LeftSidebar from '../LeftSidebar.svelte';
+  import MainContent from '../MainContent.svelte';
   import { renderPersonJsonLd } from '$lib/profile';
   import { getMetadata } from '$lib/site-metadata';
   import { locale } from 'svelte-i18n';
+
   let { data } = $props();
   const metadata = $derived(getMetadata($locale || data.locale));
 </script>
@@ -22,7 +23,7 @@
   <meta name="twitter:title" content={metadata.title} />
   <meta name="twitter:description" content={metadata.description} />
   <meta name="twitter:image" content="https://shenna.rwpiri.com/og-image.svg" />
-  <!-- eslint-disable svelte/no-at-html-tags -- renderPersonJsonLd() serializes static first-party profile data; no user input involved. -->
+  <!-- eslint-disable svelte/no-at-html-tags -- JSON-LD is generated solely from static first-party profile data. -->
   {@html renderPersonJsonLd()}
   <!-- eslint-enable svelte/no-at-html-tags -->
 </svelte:head>

@@ -23,6 +23,9 @@ npm ci
 npm run dev
 ```
 
+Browser smoke and accessibility tests require Chromium. Install it once with
+`npx playwright install chromium`, then run `npm run test:e2e`.
+
 Before deploying, run `npm run check`, `npm run lint`, `npm run test:coverage`,
 and `npm run build`. Run SvelteKit checks and builds sequentially because they
 share generated files in `.svelte-kit`.

@@ -1,26 +1,26 @@
 import { initI18n } from '$lib/i18n';
+import { isSupportedLocale, type SupportedLocale } from '$lib/site-metadata';
 import type { LayoutLoad } from './$types';
 
 export const prerender = true;
 export const trailingSlash = 'always';
 
 export const load: LayoutLoad = async ({ url }) => {
-  const supportedLocales = ['en', 'de', 'id'];
   let initialLocale = 'en';
 
   if (typeof localStorage !== 'undefined') {
     const saved = localStorage.getItem('locale');
-    if (saved && supportedLocales.includes(saved)) {
+    if (isSupportedLocale(saved)) {
       initialLocale = saved;
     } else if (typeof navigator !== 'undefined' && navigator.language) {
       const browserLang = navigator.language.split('-')[0];
-      if (supportedLocales.includes(browserLang)) {
+      if (isSupportedLocale(browserLang)) {
         initialLocale = browserLang;
       }
     }
   } else if (typeof navigator !== 'undefined' && navigator.language) {
     const browserLang = navigator.language.split('-')[0];
-    if (supportedLocales.includes(browserLang)) {
+    if (isSupportedLocale(browserLang)) {
       initialLocale = browserLang;
     }
   }
@@ -30,7 +30,5 @@ export const load: LayoutLoad = async ({ url }) => {
   // Determine if analytics script should be included
   const includeAnalytics = url.hostname === 'shenna.rwpiri.com';
 
-  return {
-    includeAnalytics, // Pass the flag to the layout component
-  };
+  return { includeAnalytics, locale: initialLocale as SupportedLocale };
 };

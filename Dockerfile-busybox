@@ -19,3 +19,4 @@ WORKDIR /home/static
 # SvelteKit with adapter-static defaults to 'build' folder
 COPY --from=builder /app/build .
 CMD ["/busybox-httpd", "-f", "-v", "-p", "80", "-c", "httpd.conf"]
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD wget --spider --quiet http://127.0.0.1/ || exit 1

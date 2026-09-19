@@ -88,6 +88,17 @@ export function renderPersonJsonLd(): string {
       name: profile.school,
     },
     sameAs: profile.socialLinks.map((link) => link.href),
+    image: 'https://shenna.rwpiri.com/og-image.svg',
+    knowsAbout: [
+      'Java',
+      'Kotlin',
+      'Spring Boot',
+      'Angular',
+      'Vue',
+      'Azure',
+      'Kubernetes',
+      'Docker',
+    ],
   };
   return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
 }
