@@ -3,10 +3,9 @@
   import MainContent from '../MainContent.svelte';
   import { renderPersonJsonLd } from '$lib/profile';
   import { getMetadata } from '$lib/site-metadata';
-  import { locale } from 'svelte-i18n';
 
   let { data } = $props();
-  const metadata = $derived(getMetadata($locale || data.locale));
+  const metadata = $derived(getMetadata(data.locale));
 </script>
 
 <svelte:head>
