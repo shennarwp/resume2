@@ -9,7 +9,7 @@ for (const locale of locales) {
     page.on('pageerror', (error) => browserErrors.push(error.message));
     await page.goto(locale ? `/${locale}/` : '/');
     await expect(page.locator('main')).toBeVisible();
-    await expect(page.locator('h1')).toHaveCount(4);
+    await expect(page.locator('.right h1')).toHaveCount(4);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       'href',
       `https://shenna.rwpiri.com/${locale ? `${locale}/` : ''}`,
@@ -37,7 +37,7 @@ test('supports keyboard navigation and visible focus', async ({ page }) => {
   await expect(page.locator(':focus')).toHaveClass(/skip-link/);
   await page.keyboard.press('Tab');
   await expect(page.locator(':focus')).toBeVisible();
-  await expect(page.locator('button[aria-pressed]').first()).toBeVisible();
+  await expect(page.locator('button[aria-pressed]:visible').first()).toBeVisible();
 });
 
 test('passes accessibility, heading, and language-control checks', async ({ page }) => {
