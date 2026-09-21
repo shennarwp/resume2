@@ -21,7 +21,7 @@
     "test:e2e": "playwright test"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.11.3",
+    "@axe-core/playwright": "^4.13.0",
     "@codecov/sveltekit-plugin": "^2.0.1",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
