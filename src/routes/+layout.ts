@@ -5,10 +5,10 @@ import type { LayoutLoad } from './$types';
 export const prerender = true;
 export const trailingSlash = 'always';
 
-export const load: LayoutLoad = async ({ url }) => {
-  let initialLocale = 'en';
+export const load: LayoutLoad = async ({ url, params }) => {
+  let initialLocale = isSupportedLocale(params.locale) ? params.locale : 'en';
 
-  if (typeof localStorage !== 'undefined') {
+  if (!isSupportedLocale(params.locale) && typeof localStorage !== 'undefined') {
     const saved = localStorage.getItem('locale');
     if (isSupportedLocale(saved)) {
       initialLocale = saved;
@@ -18,7 +18,11 @@ export const load: LayoutLoad = async ({ url }) => {
         initialLocale = browserLang;
       }
     }
-  } else if (typeof navigator !== 'undefined' && navigator.language) {
+  } else if (
+    !isSupportedLocale(params.locale) &&
+    typeof navigator !== 'undefined' &&
+    navigator.language
+  ) {
     const browserLang = navigator.language.split('-')[0];
     if (isSupportedLocale(browserLang)) {
       initialLocale = browserLang;
