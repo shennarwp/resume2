@@ -188,6 +188,13 @@ button:focus-visible {
     --language-switcher-button-active-text-color: #2c2c2c;
     --language-switcher-icon-color: #bbb;
   }
+
+  /* Social icons are rasterized by the browser when used as images, so
+     recolor them to match the surrounding text in dark mode. */
+  .link-icon {
+    filter: brightness(0) invert(1);
+    opacity: 0.87;
+  }
 }
 
 /* Print Styles */
