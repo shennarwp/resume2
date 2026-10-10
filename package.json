@@ -30,7 +30,7 @@
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/svelte": "^5.4.2",
-    "@types/node": "^24.19.0",
+    "@types/node": "^24.19.1",
     "@vitest/coverage-v8": "^5.0.2",
     "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
@@ -39,12 +39,12 @@
     "jsdom": "^29.1.1",
     "prettier": "^3.9.9",
     "prettier-plugin-svelte": "^4.1.1",
-    "svelte": "^5.57.1",
+    "svelte": "^5.57.2",
     "svelte-check": "^4.7.6",
     "terser": "^5.51.2",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.1",
-    "vite": "^8.3.1",
+    "vite": "^8.3.3",
     "vitest": "^5.0.2"
   },
   "overrides": {
