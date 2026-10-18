@@ -24,7 +24,7 @@
     "@axe-core/playwright": "^4.13.0",
     "@codecov/sveltekit-plugin": "^2.0.1",
     "@eslint/js": "^10.0.1",
-    "@playwright/test": "^1.63.0",
+    "@playwright/test": "^1.64.1",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.70.3",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
