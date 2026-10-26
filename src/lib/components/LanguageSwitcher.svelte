@@ -11,19 +11,16 @@
 
 <div class="language-switcher">
   <button
-    aria-label="Deutsch (de)"
     aria-pressed={$locale === 'de'}
     onclick={() => setLocale('de')}
     class:active={$locale === 'de'}><b>de</b></button
   >
   <button
-    aria-label="English (en)"
     aria-pressed={$locale === 'en'}
     onclick={() => setLocale('en')}
     class:active={$locale === 'en'}><b>en</b></button
   >
   <button
-    aria-label="Bahasa Indonesia (id)"
     aria-pressed={$locale === 'id'}
     onclick={() => setLocale('id')}
     class:active={$locale === 'id'}><b>id</b></button
