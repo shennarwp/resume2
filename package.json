@@ -21,7 +21,7 @@
     "test:e2e": "playwright test"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.13.0",
+    "@axe-core/playwright": "^4.14.0",
     "@codecov/sveltekit-plugin": "^2.0.1",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.64.1",
@@ -35,7 +35,7 @@
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.23.1",
-    "globals": "^17.12.0",
+    "globals": "^17.13.0",
     "jsdom": "^29.1.1",
     "prettier": "^3.9.10",
     "prettier-plugin-svelte": "^4.1.1",
