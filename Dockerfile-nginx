@@ -1,4 +1,4 @@
-FROM node:26.13.0-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 COPY package*.json ./
@@ -6,7 +6,7 @@ RUN npm ci --ignore-scripts --no-audit --no-fund
 COPY . .
 RUN npm run build
 
-FROM nginxinc/nginx-unprivileged:1.31-alpine-perl
+FROM nginx:stable-alpine
 LABEL maintainer="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
 LABEL org.opencontainers.image.authors="Shenna Risqianto Wilfred Piri <shenna@rwpiri.com>"
 LABEL org.opencontainers.image.url="https://github.com/shennarwp/resume2"
